@@ -2,7 +2,9 @@
 import "./styles/styles.css";
 import "./styles/styles.scss";
 import "./styles/variables.scss";
+import "./styles/animations.scss";
 
+import { setInitialEvents } from './utils';
 
 import background from './background';
 import playerinterface from './playerInterface';
@@ -10,8 +12,9 @@ import gameresult from './gameresult';
 import * as splash from './splash';
 
 window.onload = () => {
+  setInitialEvents();
   setTimeout(() => {
-    splash.hideAndRemoveSplash();
+    splash.putSplashInLoadingCompleteState();
   }, 3000);
 };
 

@@ -35,7 +35,6 @@ const awaitToSomeElementLayoutState = ({
   });
 };
 
-
 export {
   awaitToSomeElementLayoutState
 }

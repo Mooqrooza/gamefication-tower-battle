@@ -12,7 +12,7 @@
   background-color: #fff;
 
   &.hide {
-    animation: splash-hide-animate-1 1s 0.6s 1 forwards;
+    animation: common-hide-animate 1s 0.6s 1 forwards;
   }
 
   .wrapper {
@@ -21,18 +21,24 @@
     align-items: center;
 
     &.hide {
-      animation: splash-hide-animate-1 0.5s 0s 1 forwards;
+      animation: common-hide-animate 0.5s 0s 1 forwards;
     }
 
     h1 {
       color: $color-main-blue;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    h2 {
+    .info-text {
       font-size: 14px;
+      font-weight: bold;
       color: $color-main-blue;
       margin: 10px 0;
+      min-height: 18px;
+
+      &.blink {
+        animation: common-blink-once-animate 0.8s 0s 1 linear;
+      }
     }
 
     .line{
@@ -41,35 +47,50 @@
       background-color: $color-main-blue;
     }
 
-    .loading-indicator {
+    .button-and-loader-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px 0;
+    }
+  }
+
+  .loading-indicator {
+    position: absolute;
+    width: 120px;
+    height: 3px;
+    border-radius: 1px;
+    background-color: rgba($color-main-turquoise, 0.3);
+    overflow: hidden;
+
+    &.hide { animation: common-hide-animate 0.2s 0s 1 forwards; }
+
+    div {
       width: 120px;
       height: 3px;
-      margin-top: 30px;
-      border-radius: 1px;
-      background-color: rgba($color-main-blue, 0.3);
-      overflow: hidden;
-
-      div {
-        width: 120px;
-        height: 3px;
-        background-color: $color-main-blue;
-        animation: splash-loading-indicator-animate-1 0.8s 0s infinite linear forwards;
-      }
+      background-color: $color-main-turquoise;
+      animation: splash-loading-indicator-animate 0.8s 0s infinite linear forwards;
     }
+  }
+
+  .splash-ready-button {
+      opacity: 0;
+      &.hidden { opacity: 0; visibility: hidden; }
+      &.hide { animation: common-hide-animate 0.4s 0s 1 forwards; }
+      &.show {
+        animation: common-show-animate 0.1s 0.1s 1 forwards;
+
+      }
   }
 
 }
 
-@keyframes splash-loading-indicator-animate-1 {
+@keyframes splash-loading-indicator-animate {
   0%{ transform: translateX(-100%); }
   10%{ transform: translateX(-90%); }
   40%{ transform: translateX(-5%); }
   50%{ transform: translateX(0); }
   70%{ transform: translateX(90%); }
   100%{ transform: translateX(100%); }
-}
-
-@keyframes splash-hide-animate-1 {
-  99.9%{ opacity: 0; visibility: visible; }
-  100%{ opacity: 0; visibility: hidden; }
 }
