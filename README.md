@@ -10,7 +10,10 @@ First install dependencies:
 npm install
 ```
 
+
 To run in hot module reloading mode:
+
+(Require parcel-bundler)
 
 ```sh
 npm start
