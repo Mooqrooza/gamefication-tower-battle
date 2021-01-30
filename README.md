@@ -11,6 +11,7 @@ npm install
 ```
 
 To run in hot module reloading mode:
+Before use start instal globaly parcel-bundler!
 
 ```sh
 npm start
