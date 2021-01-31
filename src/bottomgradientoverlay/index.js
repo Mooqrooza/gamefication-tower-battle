@@ -1,9 +1,7 @@
 import './styles.scss';
 
 const html = `
-  <div class="ground">
-
-  </div>
-`;
+  <div class="bottom-gradient-overlay"></div>`
+.trim();
 
 export default html;

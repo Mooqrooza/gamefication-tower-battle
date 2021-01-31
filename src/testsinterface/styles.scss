@@ -1,0 +1,13 @@
+@import '../styles/variables.scss';
+
+.tests-interface {
+  position: absolute;
+  width: 94%;
+  max-width: 1024px;
+  min-height: 280px;
+  bottom: 0;
+
+  border-radius: 40px 40px 0 0;
+
+  background-color: rgba(lighten($color-main-green, 56%), 0.96 );
+}

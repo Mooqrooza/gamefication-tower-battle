@@ -8,20 +8,33 @@ import { setInitialEvents } from './utils';
 
 import background from './background';
 import playerinterface from './playerInterface';
+import testsinterface from './testsinterface';
 import gameresult from './gameresult';
+import uppergradientoverlay from './uppergradientoverlay';
+import bottomgradientoverlay from './bottomgradientoverlay';
+import * as tower from './tower';
+import * as ground from './ground';
 import * as splash from './splash';
 
 window.onload = () => {
   setInitialEvents();
   setTimeout(() => {
     splash.putSplashInLoadingCompleteState();
-  }, 3000);
+  }, 1000);
 };
 
 document.body.innerHTML = `
   <div id="app">
     ${background}
-    ${playerinterface}
+    ${tower.html}
+    ${bottomgradientoverlay}
+    ${uppergradientoverlay}
+    <div class="interfaces-box">
+      ${playerinterface}
+    </div>
+    ${ground.html}
     ${splash.html}
   </div>
 `;
+
+//${testsinterface}

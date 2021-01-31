@@ -1,10 +1,18 @@
 import { hideAndRemoveSplash } from '../splash';
+import { setFirstShowClassToTower} from '../tower';
+import { setFirstShowClassToGround } from '../ground';
 
 const setInitialEvents = () => {
   const splashReadyButtonElement = document.getElementsByClassName("splash-ready-button")[0];
 
   splashReadyButtonElement.addEventListener("click", (e) => {
     hideAndRemoveSplash();
+    setTimeout(() => {
+      setFirstShowClassToGround();
+    }, 600);
+    setTimeout(() => {
+      setFirstShowClassToTower();
+    }, 500)
   });
 
   splashReadyButtonElement.addEventListener("mouseenter", (e) => {

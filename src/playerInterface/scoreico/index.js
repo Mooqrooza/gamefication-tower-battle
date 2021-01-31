@@ -1,0 +1,7 @@
+const html =`
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <path d="M11,6.172L13.828,9,11,11.828,8.172,9Z" fill=" #eacf7e" />
+  <path d="M7,6.172L9.828,9,7,11.828,4.172,9Z" fill="#fdf8e8" />
+</svg>`.trim();
+
+export default html;

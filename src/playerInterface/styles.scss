@@ -1,10 +1,97 @@
+@import '../styles/variables.scss';
+
 .player-interface {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   width: 300px;
   height: 100px;
+  top: 40px;
+  left: 30px;
 
-  .avatar {
-    
+  * { color: #fff}
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    &:nth-child(2) {
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 4px;
+    }
   }
 
+  .name {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 72px;
+    margin-right: 10px;
+    border-radius: 35px;
+    background-color: desaturate(lighten($color-main-blue, 8%), 30%);
+
+    .img {
+      width: 60px;
+      height: 60px;
+      border-radius: 31px;
+
+      background: url(../assets/images/player-ico-1.jpg) no-repeat center;
+    }
+  }
+
+  .hints {
+    display: flex;
+    align-items: center;
+
+    width: 40px;
+    height: 80px;
+
+    > svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .count-indicator {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 8px;
+      margin-bottom: 60px;
+
+      div {
+        width: 3px;
+        height: 3px;
+        margin: 0 2px;
+        border-radius: 3px;
+        background-color: lighten($color-main-turquoise, 8%);
+      }
+    }
+  }
+
+  .score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 400;
+
+    svg {
+      padding-right: 2px;
+    }
+  }
+
+  .lives {
+    display: flex;
+    align-items: center;
+  }
 }
