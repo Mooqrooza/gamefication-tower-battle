@@ -2,6 +2,8 @@ import { hideAndRemoveSplash } from '../splash';
 import { setFirstShowClassToTower} from '../tower';
 import { setFirstShowClassToGround } from '../ground';
 import { setFirstShowClassToMountains } from '../mountains';
+import { setFirstShowClassToCloudsBack } from '../cloudsback';
+import { setFirstShowClassToCloudsFront } from '../cloudsfront';
 
 const setInitialEvents = () => {
   const splashReadyButtonElement = document.getElementsByClassName("splash-ready-button")[0];
@@ -16,6 +18,8 @@ const setInitialEvents = () => {
     }, 500);
     setTimeout(() => {
       setFirstShowClassToMountains();
+      setFirstShowClassToCloudsBack();
+      setFirstShowClassToCloudsFront();
     }, 1000)
   });
 

@@ -8,6 +8,8 @@ import { setInitialEvents } from './utils';
 
 import background from './background';
 import * as mountains from './mountains';
+import * as cloudsback from './cloudsback';
+import * as cloudsfront from './cloudsfront';
 import playerinterface from './playerInterface';
 import testsinterface from './testsinterface';
 import gameresult from './gameresult';
@@ -28,7 +30,9 @@ document.body.innerHTML = `
   <div id="app">
     ${background}
     ${mountains.html}
+    ${cloudsback.html}
     ${tower.html}
+    ${cloudsfront.html}
     ${bottomgradientoverlay}
     ${uppergradientoverlay}
     <div class="interfaces-box">
