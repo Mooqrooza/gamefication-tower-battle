@@ -19,13 +19,13 @@
   &.first-show {
     bottom: 50px;
     transition: bottom 0.4s 0s;
-    
+
     svg {
       g:nth-child(1) {
        animation: mountains-animate-1 0.6s 0s 1 forwards;
      }
      g:nth-child(2) {
-      animation: mountains-animate-1 0.8s 0.2s 1 forwards;
+      animation: mountains-animate-2 0.8s 0.2s 1 forwards;
     }
     }
 
@@ -38,6 +38,13 @@
   40%{ transform: translateY(-4px); }
   50%{ opacity: 1; transform: translateY(2px); }
   55%{ transform: translateY(-2px); }
+  65%{ transform: translateY(0); }
+  100%{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mountains-animate-2 {
+  0%{ opacity: 0; transform: translateY(50px); }
+  40%{ transform: translateY(-4px); }
   65%{ transform: translateY(0); }
   100%{ opacity: 1; transform: translateY(0); }
 }
