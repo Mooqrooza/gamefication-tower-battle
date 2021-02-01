@@ -7,6 +7,7 @@ import "./styles/animations.scss";
 import { setInitialEvents } from './utils';
 
 import background from './background';
+import * as mountains from './mountains';
 import playerinterface from './playerInterface';
 import testsinterface from './testsinterface';
 import gameresult from './gameresult';
@@ -26,6 +27,7 @@ window.onload = () => {
 document.body.innerHTML = `
   <div id="app">
     ${background}
+    ${mountains.html}
     ${tower.html}
     ${bottomgradientoverlay}
     ${uppergradientoverlay}

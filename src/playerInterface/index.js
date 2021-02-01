@@ -30,9 +30,7 @@ const html = `
         ${lines}
 
     </div>
-    <div class="score">
-      ${scoreico}000000
-    </div>
+    <div class="score">000000</div>
 
   </div>
 `;

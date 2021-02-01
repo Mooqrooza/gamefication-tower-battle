@@ -25,7 +25,7 @@
         }
       }
       > div:nth-child(2) {
-         animation: main-button-animate-1a 0.2s 0s 1 forwards;
+         animation: main-button-animate-1a 0.16s 0s 1 forwards;
       }
     }
   }
@@ -148,7 +148,7 @@
 
 @keyframes main-button-animate-1a {
   0% {
-    transform: translateX(20px);
+    transform: translateX(10px);
     opacity: 0;
   }
   100% {

@@ -82,9 +82,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     font-size: 15px;
     font-weight: 400;
-
+    width: 72px;
     svg {
       padding-right: 2px;
     }
