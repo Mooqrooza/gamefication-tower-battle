@@ -1,39 +1,34 @@
-import { hideAndRemoveSplash } from '../splash';
-import { setFirstShowClassToTower} from '../tower';
-import { setFirstShowClassToGround } from '../ground';
-import { setFirstShowClassToMountains } from '../mountains';
-import { setFirstShowClassToCloudsBack } from '../cloudsback';
-import { setFirstShowClassToCloudsFront } from '../cloudsfront';
+import { TowerGame } from './game';
+import {
+  setUseClassToElement,
+  setHoverOnClassToElement,
+  setHoverOffClassToElement
+} from './content';
 
+/* Назначаем стандартные обработчики событий для DOM элементов */
 const setInitialEvents = () => {
   const splashReadyButtonElement = document.getElementsByClassName("splash-ready-button")[0];
+  const answerButtonElements = document.getElementsByClassName("answer-button");
 
-  splashReadyButtonElement.addEventListener("click", (e) => {
-    hideAndRemoveSplash();
-    setTimeout(() => {
-      setFirstShowClassToGround();
-    }, 600);
-    setTimeout(() => {
-      setFirstShowClassToTower();
-    }, 500);
-    setTimeout(() => {
-      setFirstShowClassToMountains();
-      setFirstShowClassToCloudsBack();
-      setFirstShowClassToCloudsFront();
-    }, 1000)
+
+  /* Обработчики для кнопки "Начнем" на экране заставки*/
+  splashReadyButtonElement.addEventListener("click",
+    () => TowerGame.start()
+  );
+  splashReadyButtonElement.addEventListener("mouseenter", (event) => {
+    setHoverOnClassToElement({ element: event.currentTarget });
+  });
+  splashReadyButtonElement.addEventListener("mouseleave", (event) => {
+    setHoverOffClassToElement({ element: event.currentTarget });
   });
 
-  splashReadyButtonElement.addEventListener("mouseenter", (e) => {
-    e.currentTarget.classList.remove('hoverOff');
-    e.currentTarget.offsetWidth;
-    e.currentTarget.classList.add('hoverOn');
+  /* Обработчики для кнопок ответов в интерфейсе тестовых вопросов */
+  Array.from(answerButtonElements).forEach( element => {
+    element.addEventListener("click", (event) => setUseClassToElement({ element: event.currentTarget }) );
+    element.addEventListener("mouseenter", (event) => setHoverOnClassToElement({ element: event.currentTarget }) );
+    element.addEventListener("mouseleave", (event) => setHoverOffClassToElement({ element: event.currentTarget }) );
   });
 
-  splashReadyButtonElement.addEventListener("mouseleave", (e) => {
-    e.currentTarget.classList.remove('hoverOn');
-    e.currentTarget.offsetWidth;
-    e.currentTarget.classList.add('hoverOff');
-  });
 
 };
 

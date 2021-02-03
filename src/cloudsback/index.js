@@ -1,5 +1,4 @@
 import './styles.scss';
-import { setFirstShowClassToCloudsBack } from './script';
 
 const html = `
   <div class="clouds-back">
@@ -14,7 +13,4 @@ const html = `
   </div>
 `;
 
-export {
-  html,
-  setFirstShowClassToCloudsBack
-}
+export default html;

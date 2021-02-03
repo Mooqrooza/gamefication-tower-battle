@@ -1,7 +1,5 @@
 import './styles.scss';
 
-import { setFirstShowClassToMountains } from './script';
-
 const html = `
   <div class="mountains">
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
@@ -18,7 +16,4 @@ const html = `
   </div>
 `;
 
-export{
-  html,
-  setFirstShowClassToMountains
-}
+export default html;

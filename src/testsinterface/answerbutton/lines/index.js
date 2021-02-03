@@ -1,13 +1,18 @@
 import './styles.scss';
 
 const html = `
-  <div class="ground">
-    <div></div>
-    <div></div>
+<div class="lines">
+  <div>
     <div></div>
     <div></div>
     <div></div>
   </div>
+  <div>
+    <div>
+      <div></div>
+    </div>
+  </div>
+</div>
 `;
 
 export default html;

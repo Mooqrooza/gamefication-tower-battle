@@ -15,7 +15,7 @@
   border-radius: 22px;
   background-color: desaturate(lighten($color-main-turquoise, 58%), 24%);
 
-  &.hoverOn {
+  &.hover-on {
     .lines {
       > div:nth-child(1) {
          animation: main-button-animate-1 0.2s 0s 1 forwards;
@@ -30,7 +30,7 @@
     }
   }
 
-  &.hoverOff {
+  &.hover-off {
     .lines {
       > div:nth-child(1) {
         animation: main-button-animate-2 0.12s 0s 1 forwards;
