@@ -72,7 +72,7 @@
   }
 
   &.show, &.first-show {
-    animation: testsinterface-show-animate-1  0.5s 0s 1 forwards cubic-bezier(0.53, 0, 0.3, 1);
+    animation: testsinterface-show-animate-1  0.5s 0s 1 forwards cubic-bezier(0.16, 1, 0.3, 1);
   }
   &.hide {
     animation: testsinterface-hide-animate-1  0.8s 0s 1 forwards;
@@ -85,6 +85,9 @@
     min-height: 50%;
     border-radius:0;
 
+    .question-text {
+      margin: 10px 0 20px 0;
+    }
     @media (max-width: 720px) {
       .question-buttons {
         align-self: flex-end;
@@ -106,12 +109,12 @@
 @keyframes testsinterface-show-animate-1 {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(100%) rotate(20deg) scale(0.8);
     visibility: visible;
   }
   99.9% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotate(0) scale(1);
   }
   100% {
     opacity: 1;

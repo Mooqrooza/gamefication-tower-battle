@@ -1,6 +1,6 @@
 import { hideAndRemoveSplash, putSplashInLoadingCompleteState } from './script';
 
-import mainbutton from '../mainbutton';
+import startbutton from './startbutton';
 
 import './styles.scss';
 
@@ -12,7 +12,7 @@ const html = `
       <p class="info-text">Режим состязания "Башня": Загрузка...</p>
       <div class="line"></div>
       <div class="button-and-loader-box">
-        ${mainbutton({ text: 'Начнем', classIdentifiers: 'splash-ready-button hidden'})}
+        ${startbutton({ text: 'Начнем', classIdentifiers: 'splash-ready-button hidden'})}
         <div class="loading-indicator"><div></div></div>
       </div>
 
@@ -20,6 +20,5 @@ const html = `
 
   </div>
 `;
-//
 
 export { html, hideAndRemoveSplash, putSplashInLoadingCompleteState };

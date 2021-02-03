@@ -1,11 +1,11 @@
-@import '../styles/variables.scss';
+@import '../../styles/variables.scss';
 
-.main-button {
+.start-button {
   position: relative;
   display: flex;
   align-items: center;
-  text-align: center;
-
+  justify-content: center;
+  opacity: 0;
   min-width: 180px;
   height: 44px;
   border: none;
@@ -15,51 +15,11 @@
   border-radius: 22px;
   background-color: desaturate(lighten($color-main-turquoise, 58%), 24%);
 
-  &.hover-on {
-    .lines {
-      > div:nth-child(1) {
-         animation: main-button-animate-1 0.2s 0s 1 forwards;
-
-         > div > div {
-           animation: main-button-animate-3 0.4s 0s 1 forwards;
-        }
-      }
-      > div:nth-child(2) {
-         animation: main-button-animate-1a 0.16s 0s 1 forwards;
-      }
-    }
-  }
-
-  &.hover-off {
-    .lines {
-      > div:nth-child(1) {
-        animation: main-button-animate-2 0.12s 0s 1 forwards;
-      }
-      > div:nth-child(2) {
-         animation: main-button-animate-2a 0.12s 0s 1 forwards;
-      }
-    }
-  }
-
-  .ico {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 100%;
-
-    path {
-      stroke-color: $color-main-turquoise;
-    }
-  }
-
   .text {
-    flex: 1;
-    align-self: center;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 500;
-    margin: 1px 30px 0 0;
+    margin-top: 1px;
     color: $color-main-turquoise;
   }
 
@@ -74,12 +34,12 @@
     }
 
     > div:nth-child(1) {
-      left: 64px;
-      width: calc(100% - 100px);
+      right: 10px;
+      width: calc(100% - 50px);
       height: 1px;
       top: 0;
       opacity: 0;
-      animation: main-button-lines-out-animate-1 0.12s 0s 1 forwards;
+      animation: start-button-lines-out-animate-1 0.12s 0s 1 forwards;
 
       > div {
         top: 0;
@@ -129,10 +89,40 @@
 
   }
 
+  &.hover-on {
+    .lines {
+      > div:nth-child(1) {
+         animation: start-button-hover-animate-1 0.2s 0s 1 forwards;
+
+         > div > div {
+           animation: start-button-hover-animate-3 0.4s 0s 1 forwards;
+        }
+      }
+      > div:nth-child(2) {
+         animation: start-button-hover-animate-1a 0.16s 0s 1 forwards;
+      }
+    }
+  }
+
+  &.hover-off {
+    .lines {
+      > div:nth-child(1) {
+        animation: start-button-hover-animate-2 0.12s 0s 1 forwards;
+      }
+      > div:nth-child(2) {
+         animation: start-button-hover-animate-2a 0.12s 0s 1 forwards;
+      }
+    }
+  }
+
+  &.hidden { opacity: 0; visibility: hidden; }
+  &.hide { animation: common-hide-animate 0.4s 0s 1 forwards; }
+  &.show { animation: common-show-animate 0.1s 0.1s 1 forwards; }
+
 }
 
 
-@keyframes main-button-animate-1 {
+@keyframes start-button-hover-animate-1 {
   0% {
     transform: translateX(-40px);
   }
@@ -146,7 +136,7 @@
   }
 }
 
-@keyframes main-button-animate-1a {
+@keyframes start-button-hover-animate-1a {
   0% {
     transform: translateX(10px);
     opacity: 0;
@@ -157,7 +147,7 @@
   }
 }
 
-@keyframes main-button-animate-2 {
+@keyframes start-button-hover-animate-2 {
   0% { opacity: 1; }
   100% {
     transform: translateX(-20px);
@@ -165,7 +155,7 @@
   }
 }
 
-@keyframes main-button-animate-2a {
+@keyframes start-button-hover-animate-2a {
   0% { opacity: 1; }
   100% {
     transform: translateX(20px);
@@ -173,7 +163,7 @@
   }
 }
 
-@keyframes main-button-animate-3 {
+@keyframes start-button-hover-animate-3 {
   0% {
     transform: translateX(-40px);
   }
@@ -188,7 +178,7 @@
   }
 }
 
-@keyframes main-button-animate-4 {
+@keyframes start-button-animate-4 {
   0% {
     transform: scale(0.98);
   }

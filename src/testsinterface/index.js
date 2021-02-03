@@ -9,9 +9,9 @@ const html = `
     <div class="bottom-gradient"></div>
     ${floorlevel}
     <div class="question-buttons">
-      ${questionbutton("Легкий вопрос","used")}
-      ${questionbutton("Средний вопрос")}
-      ${questionbutton("Сложный вопрос")}
+      ${questionbutton({ text: "Легкий вопрос", classIdentifiers: "used" })}
+      ${questionbutton({ text: "Средний вопрос" })}
+      ${questionbutton({ text: "Сложный вопрос" })}
     </div>
     <div class="question-text">
       <div class="line"></div>
@@ -23,9 +23,9 @@ const html = `
     </div>
 
     <div class="answers">
-      ${answerbutton("Это конец. Нужно сдаться правохранительным органам.")}
-      ${answerbutton("Притвориться, словно клиент это и заказывал.")}
-      ${answerbutton("Ничего...")}
+      ${answerbutton({ text: "Это конец. Нужно сдаться правохранительным органам." })}
+      ${answerbutton({ text: "Притвориться, словно клиент это и заказывал." })}
+      ${answerbutton({ text: "Ничего..." })}
     </div>
   </div>
 `;

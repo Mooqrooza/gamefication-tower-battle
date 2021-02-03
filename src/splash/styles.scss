@@ -73,16 +73,6 @@
       animation: splash-loading-indicator-animate 0.8s 0s infinite linear forwards;
     }
   }
-
-  .splash-ready-button {
-      opacity: 0;
-      &.hidden { opacity: 0; visibility: hidden; }
-      &.hide { animation: common-hide-animate 0.4s 0s 1 forwards; }
-      &.show {
-        animation: common-show-animate 0.1s 0.1s 1 forwards;
-      }
-  }
-
 }
 
 @keyframes splash-loading-indicator-animate {

@@ -7,18 +7,15 @@ import {
 
 /* Назначаем стандартные обработчики событий для DOM элементов */
 const setInitialEvents = () => {
-  const splashReadyButtonElement = document.getElementsByClassName("splash-ready-button")[0];
+  const startButtonElement = document.getElementsByClassName("start-button")[0];
   const answerButtonElements = document.getElementsByClassName("answer-button");
 
-
   /* Обработчики для кнопки "Начнем" на экране заставки*/
-  splashReadyButtonElement.addEventListener("click",
-    () => TowerGame.start()
-  );
-  splashReadyButtonElement.addEventListener("mouseenter", (event) => {
+  startButtonElement.addEventListener("click", () => TowerGame.start() );
+  startButtonElement.addEventListener("mouseenter", (event) => {
     setHoverOnClassToElement({ element: event.currentTarget });
   });
-  splashReadyButtonElement.addEventListener("mouseleave", (event) => {
+  startButtonElement.addEventListener("mouseleave", (event) => {
     setHoverOffClassToElement({ element: event.currentTarget });
   });
 

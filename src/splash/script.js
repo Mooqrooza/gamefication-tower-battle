@@ -33,7 +33,7 @@ const putSplashInLoadingCompleteState = () => {
   const element = document.getElementsByClassName('splash')[0];
   const infoTextElement = element.querySelector(".info-text");
   const loadingIndicatorElement = element.querySelector(".loading-indicator");
-  const buttonElement = element.querySelector(".splash-ready-button");
+  const buttonElement = element.querySelector(".start-button");
   changeTextIntoSomeElement({
     element: infoTextElement,
     text: "Вы готовы к состязанию?"

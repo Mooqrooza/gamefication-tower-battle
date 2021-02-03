@@ -2,7 +2,7 @@ import './styles.scss';
 
 import lines from './lines';
 
-const html = ( text, classIdentifiers ) => `
+const html = ({ text }) => `
   <button class="answer-button">
     <div class="background"></div>
     <span class="ico"></span>
