@@ -1,10 +1,40 @@
-import { hideAndRemoveSplash } from '../splash';
-import { setFirstShowClassToElement, constructTower } from './content';
-import { putSplashInLoadingCompleteState } from '../splash';
+import { hideAndRemoveSplash, putSplashInLoadingCompleteState } from '../splash';
+
+import {
+  setFirstShowClassToElement,
+  constructTower,
+  updateTestsInterface,
+  updateTower,
+} from './content';
+
 import questions from './questions';
 
 // Класс для объекта игрока
 class Player {
+  addLive = () => {
+    this.lives++;
+  };
+
+  lossLive = () => {
+    this.lives--;
+  };
+
+  addHint = () => {
+    this.hints++;
+  };
+
+  useHint = () => {
+    this.hints--;
+  };
+
+  addScores = ( scores ) => {
+    this.scores += scores;
+  };
+
+  lossScores = ( scores ) => {
+    this.scores -= scores;
+  };
+
   constructor ({
       naem = 'Player',
       scores = 0,
@@ -22,7 +52,6 @@ class Player {
 
 // Класс для общего объекта игры
 class Game {
-
   ready = () => {
     putSplashInLoadingCompleteState();
   };
@@ -35,24 +64,54 @@ class Game {
     setFirstShowClassToElement({ className: 'mountains', timeout: 1000 });
     setFirstShowClassToElement({ className: 'clouds-back', timeout: 1000 });
     setFirstShowClassToElement({ className: 'clouds-front', timeout: 1000 });
-    setFirstShowClassToElement({ className: 'tests-interface', timeout: 2000 });
+
+    updateTestsInterface({
+      floorNumber: this.questionsCurrentId+1,
+      pendingQuestionSelect: true,
+      timeout: 2000 });
   };
+
+  useQuestionAndAnswers = ({ questionButton, questionsCurrentId = this.questionsCurrentId }) => {
+     const difficulty = questionButton.getAttribute('data-questiondifficulty');
+     const questionsBranch = this.questions[questionsCurrentId];
+     const questionData = difficulty === 'easy' ? questionsBranch.easyQuestion :
+         difficulty === 'normal' ? questionsBranch.normalQuestion :
+           difficulty === 'hard' ? questionsBranch.hardQuestion : null;
+     this.pendingAnswer = true;
+     this.currentQuestionFromBranch = new Object(questionData);
+     updateTestsInterface({
+       pendingAnswerSelect: true,
+       question: questionData.question,
+       answers: questionData.answers
+     })
+  };
+
+
+  answerSelected = ( selectedAnswerId ) => {
+    const correct = selectedAnswerId == this.currentQuestionFromBranch.correctId;
+
+  };
+
+  useHints = () => {
+    const deny = this.playerA.hints > 0;
+
+  };
+
+  pendingAnswer = false;
+
+  currentQuestionFromBranch = {};
 
   constructor ({
     questions = [],
-    gameState = '',
+    questionsCurrentId,
     playerA,
     playerB,
-    questionFloors = [],
-    questionFloorCurrentId,
   }) {
-    this.questinos = questions;
+    this.questions = questions;
+    this.questionsCurrentId = questionsCurrentId;
     this.playerA = playerA;
     this.playerB = playerB;
-    this.questionFloors = questionFloors;
-    this.questionFloorCurrentId = questionFloorCurrentId;
   }
-
 };
 
 /* Создаем первого игрока (Второй пока не нужен)*/
@@ -62,9 +121,9 @@ const PlayerA = new Player({ name: 'Венецианские фамильяры'
 /* Присваиваем параметру этажей с вопросами "questionFloors" список вопросов дополняя свойством "status" */
 /* Задаем начальный уровень этажа */
 const TowerGame = new Game ({
+  questions: questions.map( element => ({ ...element, status: '' })),
+  questionsCurrentId: 0,
   playerA: PlayerA,
-  questionFloors: questions.map( element => ({ ...element, status: '' })),
-  questionFloorCurrentId: 0
 });
 
 export { TowerGame, PlayerA  };

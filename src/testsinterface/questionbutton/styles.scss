@@ -1,90 +1,127 @@
 @import '../../styles/variables.scss';
+.tests-interface {
 
-.question-button {
-  position: relative;
-  width: 160px;
-  max-width: 600px;
-  height: 60px;
-  margin: 8px 30px;
-  padding: 0;
-  border: none;
-  user-select: none;
-  outline:none;
-  cursor: pointer;
-  background-color: transparent;
-
-  .background {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 44px;
-    border-radius: 22px;
+  .question-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    max-width: 600px;
+    height: 54px;
+    margin: 8px 30px;
+    padding: 0;
+    border: none;
+    user-select: none;
+    outline:none;
+    cursor: pointer;
     background-color: transparent;
-    opacity: 0.95;
+    opacity: 0;
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 44px;
+      border-radius: 22px;
+      background-color: rgba($color-main-turquoise, 0.07);
+      opacity: 0.95;
+
+    }
+
+    .background-progress-indicator {
+      position: absolute;
+      width: 100%;
+      height: 44px;
+      border-radius: 22px;
+      overflow: hidden;
+      visibility: hidden;
+
+      div {
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background-color: desaturate(lighten($color-main-turquoise, 14%), 24%);
+      }
+    }
+
+    .timer-indicator {
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      height: 10px;
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      visibility: hidden;
+      color: desaturate(lighten($color-main-turquoise, 14%), 24%);
+
+    }
+
+    .text {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      margin-top: 1px;
+      font-weight: 500;
+      line-height: 44px;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      color: darken($color-main-turquoise, 4%);
+    }
+
+    &.use {
+      .background {
+        background-color: desaturate(lighten($color-main-turquoise, 6%), 14%);
+        transition: background-color 1s 0s;
+      }
+      .background-progress-indicator, .timer-indicator { visibility: visible; }
+      .text { color: #fff }
+    }
+
+    &.click {
+      animation: common-button-click-animate-1 0.2s 0.1s 1 forwards;
+    }
 
   }
 
-  .background-progress-indicator {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 44px;
-    border-radius: 22px;
-    overflow: hidden;
-    visibility: hidden;
+  &.show, &.first-show {
+    .question-button:nth-child(1) { animation: common-fadein-left-side-animate-2 0.4s 0.16s 1 forwards linear; }
+    .question-button:nth-child(2) { animation: common-fadein-left-side-animate-2 0.4s 0.2s 1 forwards linear; }
+    .question-button:nth-child(3) { animation: common-fadein-left-side-animate-2 0.4s 0.3s 1 forwards linear; }
+  }
 
-    div {
-      position: absolute;
-      top: 0;
-      width: 40%;
-      height: 100%;
-      background-color: desaturate(lighten($color-main-turquoise, 14%), 24%);
+  &.pending-answer-select {
+    .question-button:not(.use) {
+      animation: question-button-hide-animate-1 0.8s 0s 1 forwards;
     }
   }
 
-  .timer-indicator {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 10px;
-    font-weight: 500;
-    font-size: 11px;
-    text-align: center;
-    visibility: hidden;
-    color: lighten($color-main-green, 2%);
-
+  @media (max-width: 860px) {
+    .question-button { margin: 8px 6px; }
   }
 
-  .text {
-    position: absolute;
-    width: 100%;
-    top: 1px;
-    left: 0;
-    font-weight: 500;
-    line-height: 44px;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    color: darken($color-main-turquoise, 4%);
-  }
+  @media (max-width: 720px) {
+    .question-buttons {
+      margin: 8px 10px;
+        flex-direction: column;
+        align-self: center;
 
-  &.hover-on {
-    .background { background-color: desaturate(lighten($color-main-turquoise, 8%), 20%); }
-    .text { color: #fff; }
-  }
-
-  &.used {
-    .background { background-color: desaturate(lighten($color-main-turquoise, 6%), 14%); }
-    .background-progress-indicator, .timer-indicator { visibility: visible; }
-    .text { color: #fff }
-  }
-
-  &.hover-off {
-    .background { background-color: desaturate(lighten($color-main-turquoise, 8%), 20%); }
-    .background-progress-indicator, .timer-indicator { visibility: hidden; }
-    .text { color: $color-main-turquoise; }
+        > .line { visibility: hidden; }
+    }
   }
 }
 
-@media (max-width: 860px) {
-  .question-button { margin: 8px 10px; }
+@keyframes question-button-hide-animate-1 {
+  0% {
+    opacity: 1;
+    width: 180px;
+    margin: 8px 30px;
+  }
+  50% { opacity: 0; }
+  100% {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+  }
 }

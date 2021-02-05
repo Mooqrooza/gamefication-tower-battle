@@ -11,9 +11,11 @@
   overflow: hidden;
 
   .floors {
+    display: flex;
+    flex-direction: column-reverse;
     margin-bottom: 50px;
     opacity: 0;
-    transform: scaleY(-1);
+
   }
 
   &.first-show {

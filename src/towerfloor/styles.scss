@@ -22,5 +22,16 @@
       line-height: 20px;
       color: #d9bfa1;
     }
+
+    &.current {
+      .marker {
+        position: absolute;
+        left: 10px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: $color-main-green;
+      }
+    }
   }
 }

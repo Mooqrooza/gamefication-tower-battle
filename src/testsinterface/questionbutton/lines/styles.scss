@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.answer-button {
+.question-button {
   .lines {
     position: absolute;
     width: 100%;
@@ -74,21 +74,19 @@
 
   }
 
-  &.use {
+  &.use {}
 
-  }
-
-  &.hover-on {
+  &.hover-on:not(.use) {
     .lines {
       > div:nth-child(1) { animation: common-button-line-in-animate-1 0.2s 0s 1 forwards; }
       > div:nth-child(2) { animation: common-button-line-in-animate-2  0.16s 0s 1 forwards; }
     }
   }
 
-  &.hover-off {
+  &.hover-off:not(.use) {
     .lines {
-      > div:nth-child(1) { animation: common-button-line-out-animate-1 0.12s 0s 1 forwards; }
-      > div:nth-child(2) { animation: common-button-line-out-animate-1 0.12s 0s 1 forwards; }
+      > div:nth-child(1) { animation: common-button-line-out-animate-1 0.2s 0s 1 forwards; }
+      > div:nth-child(2) { animation: common-button-line-out-animate-2  0.16s 0s 1 forwards; }
     }
   }
 }

@@ -1,0 +1,90 @@
+@import '../../styles/variables.scss';
+
+.use-hint-button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 270px;
+  height: 54px;
+  margin: 8px 30px;
+  padding: 0;
+
+  border: none;
+  user-select: none;
+  outline:none;
+  cursor: pointer;
+  background-color: transparent;
+
+  .background {
+    position: absolute;
+    width: 90%;
+    height: 44px;
+    border-radius: 22px;
+    background-color: rgba($color-main-turquoise, 0.07);
+    opacity: 0.95;
+
+  }
+
+  .background-progress-indicator {
+    position: absolute;
+    width: 100%;
+    height: 44px;
+    border-radius: 22px;
+    overflow: hidden;
+    visibility: hidden;
+
+    div {
+      position: absolute;
+      top: 0;
+      width: 40%;
+      height: 100%;
+      background-color: desaturate(lighten($color-main-turquoise, 14%), 24%);
+    }
+  }
+
+  .timer-indicator {
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    height: 10px;
+    font-weight: 500;
+    font-size: 11px;
+    text-align: center;
+    visibility: hidden;
+    color: lighten($color-main-green, 2%);
+
+  }
+
+  .text {
+    margin-top: 1px;
+    font-weight: 500;
+    line-height: 44px;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: darken($color-main-turquoise, 4%);
+  }
+
+  .ico {
+    width: 24px;
+    height: 40px;
+    path:nth-child(1) { fill: lighten($color-main-turquoise, 5%); }
+  }
+
+  &.use {
+    .background { background-color: desaturate(lighten($color-main-turquoise, 6%), 14%); }
+    .background-progress-indicator, .timer-indicator { visibility: visible; }
+    .text { color: #fff }
+  }
+
+  &.click {
+    animation: common-button-click-animate-1 0.2s 0.1s 1 forwards;
+  }
+
+}
+
+@media (max-width: 860px) {
+  .question-button { margin: 8px 10px; }
+}

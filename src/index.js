@@ -23,7 +23,7 @@ window.onload = () => {
   setInitialEvents();
   setTimeout(() => {
     TowerGame.ready();
-  }, 2000);
+  }, 100);
 };
 
 document.body.innerHTML = `

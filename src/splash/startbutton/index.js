@@ -1,20 +1,12 @@
 import './styles.scss';
 
+import lines from './lines';
+
 const html = ({ text }) => `
   <button class="start-button" value="Готов">
+    <div class="background"></div>
     <span class="text">${text}</span>
-    <div class="lines">
-      <div>
-        <div>
-          <div></div>
-        </div>
-      </div>
-      <div>
-        <div>
-          <div></div>
-        </div>
-      </div>
-    </div>
+    ${lines}
   </button>
 `;
 

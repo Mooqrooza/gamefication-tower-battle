@@ -2,10 +2,9 @@ import './styles.scss';
 
 const html = `
   <div class="floor-level">
-
     <div class="eclipse">
       <div></div>
-      <p class="number">8</p>
+      <p class="number"></p>
     </div>
     <div class="label">
       <div class="line" ></div>

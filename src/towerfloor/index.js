@@ -1,7 +1,8 @@
 import './styles.scss';
 
-const html = `
+const html = ({ number }) => `
   <div class="floor">
+    <div class="marker"></div>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="100" viewBox="0 0 200 100">
       <path fill="#554431" d="M164,82l14-14V59H160V82h4Z"/>
       <path fill="#77634c" d="M36,81L22,67V58H99V81H36Z"/>
@@ -22,7 +23,7 @@ const html = `
       <path fill="#76624b" d="M60.5,59.384L63.616,62.5,60.5,65.616,57.384,62.5Zm40,0.039,3.077,3.077L100.5,65.577,97.423,62.5Zm38,0,3.077,3.077L138.5,65.577,135.423,62.5Z"/>
       <rect fill="#5c4a35" x="37" y="78" width="126" height="4"/>
     </svg>
-    <div class="number"></div>
+    <div class="number">${number}</div>
   </div>`
 .trim();
 

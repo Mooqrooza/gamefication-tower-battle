@@ -1,34 +1,86 @@
 import { TowerGame } from './game';
+
 import {
+  setShowClassToElement,
+  setHideClassToElement,
   setUseClassToElement,
+  setClickClassToElement,
   setHoverOnClassToElement,
-  setHoverOffClassToElement
+  setHoverOffClassToElement,
+
+  updateTestsInterface,
 } from './content';
 
-/* Назначаем стандартные обработчики событий для DOM элементов */
-const setInitialEvents = () => {
-  const startButtonElement = document.getElementsByClassName("start-button")[0];
-  const answerButtonElements = document.getElementsByClassName("answer-button");
-
-  /* Обработчики для кнопки "Начнем" на экране заставки*/
-  startButtonElement.addEventListener("click", () => TowerGame.start() );
-  startButtonElement.addEventListener("mouseenter", (event) => {
+/* Обработчики для кнопки "Начнем" на экране заставки*/
+const setEventsToStartButton = () => {
+  const element = document.getElementsByClassName("start-button")[0];
+  if (!element) return;
+  element.addEventListener("click", (event) => {
+    setClickClassToElement({ element: event.currentTarget })
+    TowerGame.start();
+  });
+  element.addEventListener("mouseenter", (event) => {
     setHoverOnClassToElement({ element: event.currentTarget });
   });
-  startButtonElement.addEventListener("mouseleave", (event) => {
+  element.addEventListener("mouseleave", (event) => {
     setHoverOffClassToElement({ element: event.currentTarget });
   });
+};
 
-  /* Обработчики для кнопок ответов в интерфейсе тестовых вопросов */
+/* Обработчики для кнопок вопросов в интерфейсе тестовых вопросов */
+const setEventsToQuestionButtons = () => {
+  const elements = document.getElementsByClassName('question-button');
+  if (!elements) return;
+  Array.from(elements).forEach( el => {
+    el.addEventListener("click", (event) => {
+      if ( event.currentTarget.classList.contains('use')) return;
+      setUseClassToElement({ element: event.currentTarget });
+      TowerGame.useQuestionAndAnswers({ questionButton: event.currentTarget });
+    });
+    el.addEventListener("mouseenter", (event) => setHoverOnClassToElement({ element: event.currentTarget }) );
+    el.addEventListener("mouseleave", (event) => setHoverOffClassToElement({ element: event.currentTarget }) );
+  });
+};
+
+/* Обработчики для кнопки использования подсказок в интерфейсе тестовых вопросов */
+const setEventsToUseHintButton = () => {
+  const element = document.getElementsByClassName('use-hint-button')[0];
+  if (!element) return;
+  element.addEventListener("click", (event) => {
+    setClickClassToElement({ element: event.currentTarget })
+  });
+  element.addEventListener("mouseenter", (event) => {
+    setHoverOnClassToElement({ element: event.currentTarget });
+  });
+  element.addEventListener("mouseleave", (event) => {
+    setHoverOffClassToElement({ element: event.currentTarget });
+  });
+};
+
+/* Назначаем обработчик событий для кнопок ответов. *.
+/* Используется каждый раз при заполнении контейнер с кнопками варинтами ответов */
+const setEventsToAnswerButtons = () => {
+   const answerButtonElements = document.getElementsByClassName("answer-button");
   Array.from(answerButtonElements).forEach( element => {
-    element.addEventListener("click", (event) => setUseClassToElement({ element: event.currentTarget }) );
+    element.addEventListener("click", (event) => {
+      setClickClassToElement({ element: event.currentTarget });
+      TowerGame.answerSelected( event.currentTarget.getAttribute('data-id') );
+      setHideClassToElement({ element: document.getElementsByClassName('tests-interface')[0]});
+    });
     element.addEventListener("mouseenter", (event) => setHoverOnClassToElement({ element: event.currentTarget }) );
     element.addEventListener("mouseleave", (event) => setHoverOffClassToElement({ element: event.currentTarget }) );
   });
-
-
 };
 
+/* Назначаем стандартные обработчики событий для DOM элементов */
+const setInitialEvents = () => {
+  setEventsToStartButton();
+  setEventsToQuestionButtons();
+  setEventsToUseHintButton();
+};
+
+
 export {
-  setInitialEvents
+  setInitialEvents,
+  setEventsToAnswerButtons,
 }

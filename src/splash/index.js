@@ -12,7 +12,7 @@ const html = `
       <p class="info-text">Режим состязания "Башня": Загрузка...</p>
       <div class="line"></div>
       <div class="button-and-loader-box">
-        ${startbutton({ text: 'Начнем', classIdentifiers: 'splash-ready-button hidden'})}
+        ${startbutton({ text: 'Начнем', classIdentifiers: 'hidden'})}
         <div class="loading-indicator"><div></div></div>
       </div>
 
