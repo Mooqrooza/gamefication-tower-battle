@@ -4,15 +4,15 @@ import "./styles/styles.scss";
 import "./styles/variables.scss";
 import "./styles/animations.scss";
 
-import { setInitialEvents, TowerGame } from './utils';
+import { setInitialEvents, Game } from './utils';
 
 import background from './background';
 import mountains from './mountains';
 import cloudsback from './cloudsback';
 import cloudsfront from './cloudsfront';
 import playerinterface from './playerInterface';
-import testsinterface from './testsinterface';
-import gameresult from './gameresult';
+import questionsinterface from './questionsinterface';
+import gameresultscreen from './gameresult';
 import uppergradientoverlay from './uppergradientoverlay';
 import bottomgradientoverlay from './bottomgradientoverlay';
 import tower from './tower';
@@ -22,8 +22,8 @@ import * as splash from './splash';
 window.onload = () => {
   setInitialEvents();
   setTimeout(() => {
-    TowerGame.ready();
-  }, 100);
+    Game.ready();
+  }, 3000);
 };
 
 document.body.innerHTML = `
@@ -37,9 +37,11 @@ document.body.innerHTML = `
     ${uppergradientoverlay}
     ${ground}
     <div class="interfaces-box">
-      ${playerinterface}
-      ${testsinterface}
+      ${playerinterface({ classIdentifer: "main"})}
+      ${playerinterface({ classIdentifer: "second"})}
+      ${questionsinterface}
     </div>
     ${splash.html}
+    ${gameresultscreen}
   </div>
 `;

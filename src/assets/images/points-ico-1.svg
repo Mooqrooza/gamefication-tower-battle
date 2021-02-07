@@ -1,0 +1,16 @@
+<svg id="Ico" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffbc52;
+        opacity: 0.14;
+      }
+
+      .cls-2 {
+        fill: #ffbb4f;
+      }
+    </style>
+  </defs>
+  <circle id="_22x22" data-name="22x22" class="cls-1" cx="20" cy="20" r="11"/>
+  <circle id="Point" class="cls-2" cx="20" cy="20" r="3"/>
+</svg>

@@ -10,12 +10,11 @@ import {
   setInitialEvents
 } from './events';
 
-import { TowerGame, PlayerA } from './game';
+import { Game } from './game';
 
 export {
   awaitToSomeElementLayoutState,
   changeTextIntoSomeElement,
   setInitialEvents,
-  TowerGame,
-  PlayerA,
+  Game,
 }

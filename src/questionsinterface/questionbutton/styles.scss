@@ -1,5 +1,5 @@
 @import '../../styles/variables.scss';
-.tests-interface {
+.questions-interface {
 
   .question-button {
     position: relative;
@@ -25,7 +25,6 @@
       border-radius: 22px;
       background-color: rgba($color-main-turquoise, 0.07);
       opacity: 0.95;
-
     }
 
     .background-progress-indicator {
@@ -45,19 +44,6 @@
       }
     }
 
-    .timer-indicator {
-      position: absolute;
-      bottom: -10px;
-      width: 100%;
-      height: 10px;
-      font-weight: 500;
-      font-size: 12px;
-      text-align: center;
-      visibility: hidden;
-      color: desaturate(lighten($color-main-turquoise, 14%), 24%);
-
-    }
-
     .text {
       position: absolute;
       width: 100%;
@@ -70,6 +56,10 @@
       color: darken($color-main-turquoise, 4%);
     }
 
+    .timer-ico {
+       visibility: hidden;
+    }
+
     &.use {
       .background {
         background-color: desaturate(lighten($color-main-turquoise, 6%), 14%);
@@ -77,6 +67,19 @@
       }
       .background-progress-indicator, .timer-indicator { visibility: visible; }
       .text { color: #fff }
+
+      .timer-ico {
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        left: 6px;
+        visibility: visible;
+
+        .arrow {
+          transform-origin: center;
+          animation: question-button-timer-ico-animate-1 3s 0.1s infinite linear;
+        }
+      }
     }
 
     &.click {
@@ -92,6 +95,9 @@
   }
 
   &.pending-answer-select {
+    .question-button.use .text {
+      font-size: 18px;
+    }
     .question-button:not(.use) {
       animation: question-button-hide-animate-1 0.8s 0s 1 forwards;
     }
@@ -116,12 +122,23 @@
   0% {
     opacity: 1;
     width: 180px;
+    height: 1;
     margin: 8px 30px;
   }
   50% { opacity: 0; }
   100% {
     opacity: 0;
     width: 0;
+    height: 0;
     margin: 0;
+  }
+}
+
+@keyframes question-button-timer-ico-animate-1 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

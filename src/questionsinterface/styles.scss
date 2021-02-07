@@ -1,6 +1,6 @@
 @import '../styles/variables.scss';
 
-.tests-interface {
+.questions-interface {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -100,18 +100,19 @@
   }
 
   &.show, &.first-show {
-    animation: testsinterface-show-animate-1  0.5s 0s 1 forwards cubic-bezier(0.16, 1, 0.3, 1);
+    animation: questions-interface-show-animate-1  0.5s 0s 1 forwards cubic-bezier(0.16, 1, 0.3, 1);
   }
   &.hide {
-    animation: testsinterface-hide-animate-1  0.5s 0s 1 forwards;
+    animation: questions-interface-hide-animate-1  0.5s 0s 1 forwards;
   }
 }
 
 @media (max-width: 800px) {
-  .tests-interface {
+  .questions-interface {
     width: 100%;
     min-height: 50%;
     border-radius:0;
+    padding: 10px;
 
     .question-text {
       margin: 10px 0 20px 0;
@@ -119,7 +120,7 @@
   }
 }
 
-@keyframes testsinterface-show-animate-1 {
+@keyframes questions-interface-show-animate-1 {
   0% {
     opacity: 0;
     transform: translateY(100%) rotate(20deg) scale(0.8);
@@ -136,7 +137,7 @@
   }
 }
 
-@keyframes testsinterface-hide-animate-1 {
+@keyframes questions-interface-hide-animate-1 {
   0% {
     opacity: 1;
     transform: translateY(0);

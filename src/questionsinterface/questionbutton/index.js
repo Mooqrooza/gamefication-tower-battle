@@ -1,5 +1,8 @@
 import './styles.scss';
+
 import lines from './lines';
+
+import timerico from './timerico';
 
 const html = ({ text, questionDifficulty }) => `
   <button class="question-button" data-questiondifficulty="${questionDifficulty}">
@@ -9,6 +12,7 @@ const html = ({ text, questionDifficulty }) => `
     </div>
     <span class="text">${text}</span>
     ${lines}
+    <div class="timer-ico">${timerico}</div>
   </button>
 `;
 

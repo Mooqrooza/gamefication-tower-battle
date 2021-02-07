@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.final-exit-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 40px;
+  min-width: 180px;
+  height: 54px;
+  border: none;
+  user-select: none;
+  outline:none;
+  cursor: pointer;
+  border-radius: 22px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background-color: transparent;
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 44px;
+    border-radius: 1000px;
+    background-color: desaturate(lighten($color-main-blue, 4%), 40%);
+  }
+
+  .text {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 1px;
+    color: #fff;
+  }
+
+  &.click { animation: common-button-click-animate-1 0.2s 0.1s 1 forwards; }
+}

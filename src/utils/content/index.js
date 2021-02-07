@@ -2,7 +2,7 @@ import { setEventsToAnswerButtons } from '../events';
 
 import { constructTower, updateTower } from './tower';
 
-import { updateTestsInterface } from './testsinterface';
+import { updateQuestionsInterface } from './questionsinterface';
 
 import { updateDataInPlayerInterface } from './playerinterface';
 
@@ -18,6 +18,11 @@ import {
   setHoverOffClassToElement,
 } from './classmodifers';
 
+import {
+  showFinalWinResultScreen,
+  showFinalLoseResultScreen,
+} from './gameresultscreen';
+
 export {
   setClassToElement,
   changeTextIntoSomeElement,
@@ -31,7 +36,11 @@ export {
 
   constructTower,
   updateTower,
-  
-  updateTestsInterface,
+
+  updateQuestionsInterface,
+
   updateDataInPlayerInterface,
+
+  showFinalWinResultScreen,
+  showFinalLoseResultScreen,
 }

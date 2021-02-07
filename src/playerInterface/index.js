@@ -5,8 +5,8 @@ import hintsico from './hintsico';
 import scoreico from './scoreico';
 import lines from './lines';
 
-const html = `
-  <div class="player-interface">
+const html = ({ classIdentifer }) => `
+  <div class="player-interface ${classIdentifer}">
     <div class="box">
       <div class="name">Венецианские фамильяры</div>
     </div>

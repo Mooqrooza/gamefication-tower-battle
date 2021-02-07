@@ -6,26 +6,18 @@
   position: absolute;
   width: 300px;
   height: 100px;
-  top: 40px;
-  left: 30px;
 
   * { color: #fff}
+
+  .name {
+    font-size: 16px;
+    font-weight: 400;
+  }
 
   .box {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-
-    &:nth-child(2) {
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-  }
-
-  .name {
-    font-size: 16px;
-    font-weight: 400;
   }
 
   .avatar {
@@ -34,7 +26,6 @@
     align-items: center;
     width: 72px;
     height: 72px;
-    margin-right: 10px;
     border-radius: 35px;
     background-color: desaturate(lighten($color-main-blue, 8%), 30%);
 
@@ -42,8 +33,6 @@
       width: 60px;
       height: 60px;
       border-radius: 31px;
-
-      background: url(../assets/images/player-ico-1.jpg) no-repeat center;
     }
   }
 
@@ -78,21 +67,76 @@
     }
   }
 
+  .lives {
+    display: flex;
+    align-items: center;
+  }
+
   .score {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     font-size: 15px;
     font-weight: 400;
-    width: 72px;
+    width: 100%;
     svg {
       padding-right: 2px;
     }
   }
 
-  .lives {
-    display: flex;
-    align-items: center;
+  &.main {
+    top: 40px;
+    left: 30px;
+
+    .box {
+      &:nth-child(2) {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+    }
+
+    .avatar {
+      margin-right: 10px;
+
+      .img {
+        background: url(../assets/images/player-male-ico-60x60-1.jpg) no-repeat center;
+      }
+    }
+
+    .score {
+      text-align: left;
+    }
+  }
+
+
+  &.second {
+    top: 40px;
+    right: 30px;
+
+    .name {
+      text-align: right;
+    }
+
+    .box {
+      &:nth-child(2) {
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+    }
+
+    .avatar {
+      margin-left: 10px;
+
+      .img {
+        background: url(../assets/images/player-female-ico-60x60-1.jpg) no-repeat center;
+      }
+    }
+
+    .score {
+      flex-direction: row-reverse;
+    }
+
   }
 }

@@ -6,7 +6,7 @@ import usehintbutton from './usehintbutton';
 import floorlevel from './floorlevel';
 
 const html = `
-  <div class="tests-interface pending-question-type">
+  <div class="questions-interface pending-question-type">
     <div class="bottom-gradient"></div>
     ${floorlevel}
     <div class="question-buttons">

@@ -1,3 +1,16 @@
+
+const setAddScroresClassToScoresElement = () => {
+
+};
+
+const setMinusScroresClassToScoresElement = () => {
+
+};
+
+const setLossLivveClassToLivesElement = () => {
+  
+};
+
 const updateDataInPlayerInterface = ({
    data,
    plusScrores,

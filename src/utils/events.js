@@ -1,4 +1,4 @@
-import { TowerGame } from './game';
+import { Game } from './game';
 
 import {
   setShowClassToElement,
@@ -8,8 +8,25 @@ import {
   setHoverOnClassToElement,
   setHoverOffClassToElement,
 
-  updateTestsInterface,
+  updateDataInPlayerInterface,
+
+  updateQuestionsInterface,
 } from './content';
+
+/* Обработчики для кнопки "Выход" на финальном экране */
+const setEventsToFinalExitButton = () => {
+  const element = document.getElementsByClassName("final-exit-button")[0];
+  if (!element) return;
+  element.addEventListener("click", (event) => {
+    setClickClassToElement({ element: event.currentTarget })
+  });
+  element.addEventListener("mouseenter", (event) => {
+    setHoverOnClassToElement({ element: event.currentTarget });
+  });
+  element.addEventListener("mouseleave", (event) => {
+    setHoverOffClassToElement({ element: event.currentTarget });
+  });
+};
 
 /* Обработчики для кнопки "Начнем" на экране заставки*/
 const setEventsToStartButton = () => {
@@ -17,7 +34,7 @@ const setEventsToStartButton = () => {
   if (!element) return;
   element.addEventListener("click", (event) => {
     setClickClassToElement({ element: event.currentTarget })
-    TowerGame.start();
+    Game.start();
   });
   element.addEventListener("mouseenter", (event) => {
     setHoverOnClassToElement({ element: event.currentTarget });
@@ -35,25 +52,10 @@ const setEventsToQuestionButtons = () => {
     el.addEventListener("click", (event) => {
       if ( event.currentTarget.classList.contains('use')) return;
       setUseClassToElement({ element: event.currentTarget });
-      TowerGame.useQuestionAndAnswers({ questionButton: event.currentTarget });
+      Game.showQuestionsInterface({ questionButton: event.currentTarget });
     });
     el.addEventListener("mouseenter", (event) => setHoverOnClassToElement({ element: event.currentTarget }) );
     el.addEventListener("mouseleave", (event) => setHoverOffClassToElement({ element: event.currentTarget }) );
-  });
-};
-
-/* Обработчики для кнопки использования подсказок в интерфейсе тестовых вопросов */
-const setEventsToUseHintButton = () => {
-  const element = document.getElementsByClassName('use-hint-button')[0];
-  if (!element) return;
-  element.addEventListener("click", (event) => {
-    setClickClassToElement({ element: event.currentTarget })
-  });
-  element.addEventListener("mouseenter", (event) => {
-    setHoverOnClassToElement({ element: event.currentTarget });
-  });
-  element.addEventListener("mouseleave", (event) => {
-    setHoverOffClassToElement({ element: event.currentTarget });
   });
 };
 
@@ -64,11 +66,26 @@ const setEventsToAnswerButtons = () => {
   Array.from(answerButtonElements).forEach( element => {
     element.addEventListener("click", (event) => {
       setClickClassToElement({ element: event.currentTarget });
-      TowerGame.answerSelected( event.currentTarget.getAttribute('data-id') );
-      setHideClassToElement({ element: document.getElementsByClassName('tests-interface')[0]});
+      Game.answerSelected( event.currentTarget.getAttribute('data-id') );
     });
     element.addEventListener("mouseenter", (event) => setHoverOnClassToElement({ element: event.currentTarget }) );
     element.addEventListener("mouseleave", (event) => setHoverOffClassToElement({ element: event.currentTarget }) );
+  });
+};
+
+/* Обработчики для кнопки использования подсказок в интерфейсе тестовых вопросов */
+const setEventsToUseHintButton = () => {
+  const element = document.getElementsByClassName('use-hint-button')[0];
+  if (!element) return;
+  element.addEventListener("click", (event) => {
+    setClickClassToElement({ element: event.currentTarget });
+    Game.hintUsed( event.currentTarget.getAttribute('1') );
+  });
+  element.addEventListener("mouseenter", (event) => {
+    setHoverOnClassToElement({ element: event.currentTarget });
+  });
+  element.addEventListener("mouseleave", (event) => {
+    setHoverOffClassToElement({ element: event.currentTarget });
   });
 };
 
@@ -77,6 +94,7 @@ const setInitialEvents = () => {
   setEventsToStartButton();
   setEventsToQuestionButtons();
   setEventsToUseHintButton();
+  setEventsToFinalExitButton();
 };
 
 
