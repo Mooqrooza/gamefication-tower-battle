@@ -24,25 +24,25 @@ const html = `
         ${winimage}
         <img class="avatar" src="${avatar}" />
       </div>
-      <div>
-        <div class="points-detail">
+      <div class="game-details">
+        <div class="details scores">
           <div class="line"></div>
-          <div class="ico points"><div></div></div>
+          <div class="ico scores"><div></div></div>
           <p>Получено баллов:</p>
-          <div class="points-count"></div>
+          <div class="count"></div>
         </div>
-        <div class="points-detail">
+        <div class="details wrong-answers">
           <div class="line"></div>
-          <div class="ico wrong-answers-count"><div></div></div>
+          <div class="ico wrong-answers"><div></div></div>
           <p>Неправильных ответов:</p>
-          <div class="points-count"></div>
+          <div class="count"></div>
         </div>
-        <div class="points-detail">
+        <div class="details hint-used">
           <div class="line"></div>
           <div class="line"></div>
-          <div class="ico hints-used-count"><div></div></div>
+          <div class="ico hint-used"><div></div></div>
           <p>Использованно подсказок:</p>
-          <div class="points-count"></div>
+          <div class="count"></div>
         </div>
       </div>
       ${finalexitbutton({ text: 'Выйти'})}

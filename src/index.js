@@ -37,8 +37,7 @@ document.body.innerHTML = `
     ${uppergradientoverlay}
     ${ground}
     <div class="interfaces-box">
-      ${playerinterface({ classIdentifer: "main", name: 'Венецианские фамильяры' })}
-      ${playerinterface({ classIdentifer: "second", name: 'Обезумевшая кучка федералов' })}
+      <div class="player-interfaces"></div>
       ${questionsinterface}
     </div>
     ${splash.html}

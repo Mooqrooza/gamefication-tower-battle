@@ -1,5 +1,4 @@
 <svg id="Ico" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
   <circle fill="#ffbc52" opacity="0.14" cx="20" cy="20" r="11"/>
-  <path fill="#ffbc52" d="M16.53,24.53L15.47,23.47l8-8L24.53,16.53Z"/>
-  <path fill="#ffbc52" d="M23.469,24.53L24.53,23.47l-8-8L15.47,16.53Z"/>
+  <circle fill="#ffbc52" cx="20" cy="20" r="2"/>
 </svg>

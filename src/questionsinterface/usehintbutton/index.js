@@ -13,9 +13,10 @@ const html = () => `
     <div class="timer-indicator">
        Осталось: 00:12
     </div>
-    <span class="text">Использовать подсказку</span>
+    <span class="text" >Использовать подсказку</span>
     <div class="ico">${hintsico}</div>
     ${lines}
+    <div class="cross-line"></div>
   </button>
 `;
 

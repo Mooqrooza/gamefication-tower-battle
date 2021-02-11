@@ -1,6 +1,7 @@
 import answerbutton from '../../questionsinterface/answerbutton';
 
 import {
+  setDisabledClassToElement,
   setShowClassToElement,
   setHideClassToElement,
 } from './classmodifers';
@@ -99,12 +100,14 @@ const updateQuestionsInterface = ({
    answerComplete,
    timeout,
    question,
-   answers
+   answers,
+   hintsCount = 0,
  }) => {
   const testInterfaceElement = document.getElementsByClassName('questions-interface')[0];
   const floorLevelElement = testInterfaceElement.querySelector('.floor-level .number');
   const questionTextElement = testInterfaceElement.querySelector('.question-text p');
   const answersBoxElement = testInterfaceElement.querySelector('.answers .variants');
+  const useHintButtonElement = testInterfaceElement.querySelector('.answers .use-hint-button');
 
   switch (true) {
 
@@ -114,6 +117,10 @@ const updateQuestionsInterface = ({
     case show || showAndWaitForQuestionSelect:
       questionTextElement.innerText = 'Выберите сложноть вопроса ...'
       setClassToQuestionsInterfaceElement({ element: testInterfaceElement, className: 'show', timeout });
+      if (hintsCount === 0) {
+        setDisabledClassToElement({ element: useHintButtonElement });
+        useHintButtonElement.querySelector('.text').innerText = 'Подсказки закончились'
+      }
       break;
 
     case selectQuestionAndPandingAnswer:

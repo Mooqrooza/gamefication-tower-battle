@@ -66,7 +66,7 @@ const setEventsToAnswerButtons = () => {
   Array.from(answerButtonElements).forEach( element => {
     element.addEventListener("click", (event) => {
       setClickClassToElement({ element: event.currentTarget });
-      Game.answerSelected( event.currentTarget.getAttribute('data-id') );
+      Game.answerSelected({ answerId: event.currentTarget.getAttribute('data-id') });
     });
     element.addEventListener("mouseenter", (event) => setHoverOnClassToElement({ element: event.currentTarget }) );
     element.addEventListener("mouseleave", (event) => setHoverOffClassToElement({ element: event.currentTarget }) );
@@ -78,13 +78,16 @@ const setEventsToUseHintButton = () => {
   const element = document.getElementsByClassName('use-hint-button')[0];
   if (!element) return;
   element.addEventListener("click", (event) => {
+     if (event.currentTarget.classList.contains('disabled')) return;
     setClickClassToElement({ element: event.currentTarget });
     Game.useHint();
   });
   element.addEventListener("mouseenter", (event) => {
+    if (event.currentTarget.classList.contains('disabled')) return;
     setHoverOnClassToElement({ element: event.currentTarget });
   });
   element.addEventListener("mouseleave", (event) => {
+    if (event.currentTarget.classList.contains('disabled')) return;
     setHoverOffClassToElement({ element: event.currentTarget });
   });
 };

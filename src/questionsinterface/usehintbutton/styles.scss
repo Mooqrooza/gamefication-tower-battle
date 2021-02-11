@@ -83,6 +83,19 @@
     animation: common-button-click-animate-1 0.2s 0.1s 1 forwards;
   }
 
+  &.disabled {
+    .lines { visibility: hidden; }
+
+    .cross-line {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      border: solid lighten($color-main-green, 58%) 1px;
+      background-color: darken($color-main-turquoise, 10%);
+      opacity: 0.5;
+    }
+  }
+
 }
 
 @media (max-width: 860px) {

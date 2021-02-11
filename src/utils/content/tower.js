@@ -44,9 +44,13 @@ const useKnightOnTheFloor = ({ element, show, hide, win, lose }) => {
   }
 };
 
-const useKnightWinnerOnTheUpperFloor = () => {
-  const knightWinnerElement = document.querySelector('.tower .floor-upper .knight-winner');
-  setClassToElement({ element: knightWinnerElement, className: 'show' });
+const useKnightWinnerAndSaluteOnTheUpperFloor = () => {
+  const upperFloorElement = document.querySelector('.tower .floor-upper');
+  const knightWinnerElement = upperFloorElement.querySelector('.knight-winner');
+  const saluteElement = upperFloorElement.querySelector('.salute');
+  setTimeout(() => setClassToElement({ element: knightWinnerElement, className: 'show' }), 400);
+  setTimeout(() => setClassToElement({ element: saluteElement, className: 'show' }), 300);
+
 };
 
 const updateTower = ({
@@ -76,7 +80,7 @@ const updateTower = ({
     setWrongClassToFloorElement({ element: doorMarksElements[usedQuestionId] });
     useKnightOnTheFloor({ element: floorElement, hide: true });
   } else if (finished) {
-      useKnightWinnerOnTheUpperFloor();
+      useKnightWinnerAndSaluteOnTheUpperFloor();
   };
 };
 

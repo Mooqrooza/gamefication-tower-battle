@@ -4,13 +4,14 @@ import { constructTower, updateTower } from './tower';
 
 import { updateQuestionsInterface } from './questionsinterface';
 
-import { updateDataInPlayerInterface } from './playerinterface';
+import { createPlayerInterface, updatePlayerInterface } from './playerinterface';
 
 import {
   setClassToElement,
   changeTextIntoSomeElement,
   setShowClassToElement,
   setHideClassToElement,
+  setDisabledClassToElement,
   setFirstShowClassToElement,
   setClickClassToElement,
   setUseClassToElement,
@@ -28,6 +29,7 @@ export {
   changeTextIntoSomeElement,
   setShowClassToElement,
   setHideClassToElement,
+  setDisabledClassToElement,
   setFirstShowClassToElement,
   setClickClassToElement,
   setUseClassToElement,
@@ -39,7 +41,8 @@ export {
 
   updateQuestionsInterface,
 
-  updateDataInPlayerInterface,
+  createPlayerInterface,
+  updatePlayerInterface,
 
   showFinalWinResultScreen,
   showFinalLoseResultScreen,

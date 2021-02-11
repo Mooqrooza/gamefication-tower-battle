@@ -5,7 +5,7 @@ import hintsico from './hintsico';
 import scoreico from './scoreico';
 import lines from './lines';
 
-const html = ({ classIdentifer, name }) => `
+const html = ({ classIdentifer, name, scores, lives, hints }) => `
   <div class="player-interface ${classIdentifer}">
     <div class="box">
       <div class="name">${name}</div>

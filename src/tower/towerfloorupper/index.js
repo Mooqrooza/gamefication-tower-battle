@@ -2,10 +2,13 @@ import './styles.scss';
 
 import cloudsback from '../../cloudsback';
 
-import knightwinner from '../knightwinner';
+import salute from './salute';
+
+import knightwinner from './knightwinner';
 
 const html = `
   <div class="floor-upper">
+  ${salute}
   ${knightwinner}
   <svg class="building" xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
     <path fill="#5c4a35" d="M160,32h16a2,2,0,0,1,2,2v9a0,0,0,0,1,0,0H158a0,0,0,0,1,0,0V34A2,2,0,0,1,160,32Z"/>

@@ -40,6 +40,12 @@ const setHideClassToElement = ({ element, className, timeout }) => {
       : setClassToElement({ element, className: "hide"});
 };
 
+/* Задем класс "disabled" в принятом DOM элементе */
+const setDisabledClassToElement = ({ element, className }) => {
+  element ? element : element = document.getElementsByClassName(className)[0];
+  setClassToElement({ element, className: "disabled"});
+};
+
 /* Задем класс "first-show" в принятом DOM элементе */
 const setFirstShowClassToElement = ({ element, className, timeout }) => {
   element ? element : element = document.getElementsByClassName(className)[0];
@@ -83,6 +89,7 @@ export {
   changeTextIntoSomeElement,
   setShowClassToElement,
   setHideClassToElement,
+  setDisabledClassToElement,
   setFirstShowClassToElement,
   setClickClassToElement,
   setSenseClassToElement,
