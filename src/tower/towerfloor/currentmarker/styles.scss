@@ -1,0 +1,89 @@
+@import '../../styles/variables.scss';
+
+.tower {
+
+  .floor {
+    position: relative;
+    width: 200px;
+    height: 60px;
+
+    svg {
+      position: absolute;
+      top: -20px;
+    }
+
+    .number {
+      position: absolute;
+      top: 4px;
+      width: 100%;
+      height: 20px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 20px;
+      color: #d9bfa1;
+    }
+
+    &.current {
+      animation: floor-shake-animation-1  0.5s 0s 1;
+
+      .current-cover {
+        fill: #fff;
+        animation: floor-current-cover-animation-1  2s 0s infinite;
+      }
+
+    }
+
+
+    &.correct {
+
+      .correct-cover {
+        opacity: 0.5; transition: opacity 0.5s 0s;
+      }
+
+      .door-marks {
+        .mark.wrong {
+          fill: $color-main-red;
+        }
+        .mark.correct {
+          fill: $color-main-green;
+        }
+      }
+    }
+
+    &.wrong {
+
+      .wrong-cover {
+        opacity: 0.5; transition: opacity 0.5s 0s;
+      }
+
+      .door-marks {
+        .mark.wrong {
+          fill: $color-main-red;
+        }
+        .mark.correct {
+          fill: $color-main-green;
+        }
+      }
+    }
+
+  }
+
+}
+
+@keyframes floor-current-cover-animation-1 {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  80% { opacity: 0; }
+  100% { opacity: 0;  }
+}
+
+@keyframes floor-shake-animation-1 {
+  0% { transform: translateX(-4px); }
+  10% { transform: translateX(4px); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}

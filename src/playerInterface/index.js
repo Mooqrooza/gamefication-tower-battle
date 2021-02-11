@@ -5,10 +5,10 @@ import hintsico from './hintsico';
 import scoreico from './scoreico';
 import lines from './lines';
 
-const html = ({ classIdentifer }) => `
+const html = ({ classIdentifer, name }) => `
   <div class="player-interface ${classIdentifer}">
     <div class="box">
-      <div class="name">Венецианские фамильяры</div>
+      <div class="name">${name}</div>
     </div>
     <div class="box">
       <div class="avatar">
@@ -27,7 +27,9 @@ const html = ({ classIdentifer }) => `
         ${lines}
 
     </div>
-    <div class="score">000000</div>
+    <div class="scores">
+      <p><span>000000</span><span></span></p>
+    </div>
 
   </div>
 `;

@@ -1,5 +1,4 @@
 @import '../../styles/variables.scss';
-
 .final-exit-button {
   position: relative;
   display: flex;
@@ -14,9 +13,6 @@
   outline:none;
   cursor: pointer;
   border-radius: 22px;
-
-  visibility: hidden;
-  opacity: 0;
 
   background-color: transparent;
 
@@ -39,5 +35,8 @@
     color: #fff;
   }
 
+  &.hidden { opacity: 0; visibility: hidden; }
+  &.hide { animation: common-hide-animate-1 0.4s 0s 1 forwards; }
+  &.show { animation: common-show-animate-1 0.1s 0.1s 1 forwards; }
   &.click { animation: common-button-click-animate-1 0.2s 0.1s 1 forwards; }
 }

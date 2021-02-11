@@ -6,21 +6,12 @@ const getTimeAsMinutesAndSeconds = ( date ) => {
   return mm+':'+ss;
 };
 
-const getDateBetween = ({ firstDate = new Date, secondDate, operator }) => {
-  switch (true) {
-    case operator === "+":
-      return new Date( +firstDate + secondDate );
-    case operator === "-": 
-      return new Date( +firstDate - secondDate );
-    case operator === "*":
-      return new Date( +firstDate * secondDate );
-    case operator === "/":
-      return new Date( +firstDate / secondDate );
-  };
+const getRemainingTimeBetween = ({ firstDate, secondDate, timeForAnswer }) => {
+   const dateBetween = new Date(+firstDate + +secondDate);
+   return new Date( +(timeForAnswer) - (+firstDate - +secondDate) );
 };
-
 
 export {
   getTimeAsMinutesAndSeconds,
-  getDateBetween,
+  getRemainingTimeBetween,
 }

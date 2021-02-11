@@ -37,7 +37,7 @@ const setClassToQuestionsInterfaceElement = ({ element, className, timeout }) =>
     else if (className === 'pending-answer-select') {
       element.classList.remove('pending-question-select');
     }
-    else if (className === 'hide') { 
+    else if (className === 'hide') {
       element.classList.remove('show');
       element.classList.remove('pending-question-select');
       element.classList.remove('pending-answer-select');
@@ -117,7 +117,7 @@ const updateQuestionsInterface = ({
       break;
 
     case selectQuestionAndPandingAnswer:
-      questionTextElement.innerText = question;
+      questionTextElement.innerHTML = question;
       fillAnswerVariantsForCurrentQuestion({ element: answersBoxElement, answers });
       setPendingAnswerSelectClassToElement({ element: testInterfaceElement, timeout });
       setEventsToAnswerButtons();
@@ -127,7 +127,6 @@ const updateQuestionsInterface = ({
       resetStateForQuestionButtonElements();
       setClassToQuestionsInterfaceElement({ element: testInterfaceElement, className: 'hide', timeout });
   };
-
 };
 
 export {

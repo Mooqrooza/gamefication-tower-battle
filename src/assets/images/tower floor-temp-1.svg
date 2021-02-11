@@ -1,139 +1,122 @@
-<svg id="_2-door-marks" data-name="2-door-marks" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="100" viewBox="0 0 200 100">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
   <defs>
     <style>
       .cls-1 {
-        fill: #554431;
-      }
-
-      .cls-1, .cls-15, .cls-16, .cls-19, .cls-2, .cls-20, .cls-21 {
-        fill-rule: evenodd;
+        fill: #5c4a35;
       }
 
       .cls-2 {
-        fill: #77634c;
+        fill: #766755;
       }
 
       .cls-3 {
-        fill: #856f56;
+        fill: #6b563f;
       }
 
       .cls-4 {
-        fill: #9e866b;
+        fill: #6f604e;
       }
 
       .cls-5 {
-        fill: #8f7a62;
+        fill: #554431;
+      }
+
+      .cls-19, .cls-20, .cls-21, .cls-5, .cls-6 {
+        fill-rule: evenodd;
       }
 
       .cls-6 {
-        fill: #7e6951;
+        fill: #77634c;
       }
 
       .cls-7 {
-        fill: #8f785e;
+        fill: #856f56;
       }
 
       .cls-8 {
-        fill: #8b755b;
+        fill: #9e866b;
       }
 
       .cls-9 {
-        fill: #846e54;
+        fill: #7e6951;
       }
 
       .cls-10 {
-        fill: #897258;
+        fill: #8f785e;
       }
 
       .cls-11 {
+        fill: #8b755b;
+      }
+
+      .cls-12 {
+        fill: #846e54;
+      }
+
+      .cls-13 {
+        fill: #897258;
+      }
+
+      .cls-14 {
         fill: #9a8869;
         opacity: 0.3;
       }
 
-      .cls-12, .cls-13, .cls-14 {
+      .cls-15, .cls-16 {
         fill: #3d3022;
       }
 
-      .cls-12 {
-        opacity: 0.32;
-      }
-
-      .cls-13 {
-        opacity: 0.4;
-      }
-
-      .cls-14 {
-        opacity: 0.23;
-      }
-
       .cls-15 {
-        fill: #2f261c;
+        opacity: 0.2;
       }
 
       .cls-16 {
-        fill: #76624b;
+        opacity: 0.23;
       }
 
       .cls-17 {
-        font-size: 10px;
-        fill: #d9bfa1;
-        text-anchor: middle;
-        font-family: Roboto;
-        font-weight: 500;
-        text-transform: uppercase;
+        fill: #685947;
       }
 
       .cls-18 {
-        fill: #5c4a35;
-        filter: url(#filter);
-      }
-
-      .cls-19, .cls-20 {
-        fill: #80d4d1;
+        fill: #5b4d3d;
       }
 
       .cls-19 {
-        opacity: 0.18;
+        fill: #b39a79;
       }
 
       .cls-20 {
-        opacity: 0.64;
+        fill: #c7ac88;
       }
 
       .cls-21 {
-        fill: #d4f9f8;
+        fill: #5a4a37;
+        opacity: 0.24;
       }
     </style>
-    <filter id="filter" x="37" y="78" width="126" height="4" filterUnits="userSpaceOnUse">
-      <feImage preserveAspectRatio="none" x="37" y="78" width="126" height="4" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI2IiBoZWlnaHQ9IjQiIHZpZXdCb3g9IjAgMCAxMjYgNCI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgb3BhY2l0eTogMC4xNzsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjEyNiIgeTE9IjIiIHgyPSIwIiB5Mj0iMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNDk1IiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIxMjYiIGhlaWdodD0iNCIvPgo8L3N2Zz4K"/>
-      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
-      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
-    </filter>
   </defs>
-  <path id="Balcony" class="cls-1" d="M164,82l14-14V59H160V82h4Z"/>
-  <path id="Balcony-2" data-name="Balcony" class="cls-2" d="M36,81L22,67V58H99V81H36Z"/>
-  <rect id="Wall" class="cls-3" x="40" y="21" width="120" height="57"/>
-  <rect id="Brik" class="cls-4" x="40" y="21" width="40" height="20"/>
-  <rect id="Brik-2" data-name="Brik" class="cls-5" x="60" y="41" width="40" height="20"/>
-  <rect id="Brik-3" data-name="Brik" class="cls-6" x="80" y="61" width="40" height="17"/>
-  <rect id="Brik-4" data-name="Brik" class="cls-7" x="120" y="61" width="40" height="17"/>
-  <rect id="Brik-5" data-name="Brik" class="cls-8" x="80" y="22" width="40" height="20"/>
-  <rect id="Brik-6" data-name="Brik" class="cls-9" x="120" y="22" width="40" height="20"/>
-  <rect id="Brik-7" data-name="Brik" class="cls-10" x="100" y="41" width="40" height="20"/>
-  <rect id="Brik-8" data-name="Brik" class="cls-10" x="40" y="61" width="39" height="17"/>
-  <rect id="Colorize" class="cls-11" x="40" y="21" width="40" height="57"/>
-  <rect id="Colorize-2" data-name="Colorize" class="cls-12" x="100" y="21" width="60" height="57"/>
-  <rect id="Colorize-3" data-name="Colorize" class="cls-13" x="120" y="21" width="40" height="57"/>
-  <rect id="Colorze" class="cls-14" x="40" y="21" width="120" height="10"/>
-  <path id="Doors" class="cls-15" d="M54,61l6.5-6L67,61V78H54V61Zm40,0,6.5-6,6.5,6V78H94V61Zm38,0,6.5-6,6.5,6V78H132V61Z"/>
-  <path id="Mark" class="cls-16" d="M60.5,58.384L63.616,61.5,60.5,64.616,57.384,61.5Z"/>
-  <path id="Mark-2" data-name="Mark" class="cls-16" d="M100.5,58.423l3.077,3.077L100.5,64.577,97.422,61.5Z"/>
-  <path id="Mark-3" data-name="Mark" class="cls-16" d="M138.5,58.423l3.077,3.077L138.5,64.577,135.423,61.5Z"/>
-  <text id="_1" data-name="1" class="cls-17" x="40" y="27.5"><tspan x="40">1</tspan></text>
-  <rect id="Ground" class="cls-18" x="37" y="78" width="126" height="4"/>
-  <g id="current">
-    <path id="Mark-4" data-name="Mark" class="cls-19" d="M100.5,46.544L115.455,61.5,100.5,76.455,85.544,61.5Z"/>
-    <path id="Mark-5" data-name="Mark" class="cls-20" d="M100.5,54.5l7,7-7,7-7-7Z"/>
-    <path id="Mark-6" data-name="Mark" class="cls-21" d="M100.5,58l3.5,3.5L100.5,65,97,61.5Z"/>
-  </g>
+  <path id="Brik" class="cls-1" d="M160,27h16a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H158a0,0,0,0,1,0,0V29A2,2,0,0,1,160,27Z"/>
+  <path id="Brik-2" data-name="Brik" class="cls-2" d="M25,27H41a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H23a0,0,0,0,1,0,0V29A2,2,0,0,1,25,27Z"/>
+  <path id="Brik-3" data-name="Brik" class="cls-2" d="M58,27H74a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H56a0,0,0,0,1,0,0V29A2,2,0,0,1,58,27Z"/>
+  <path id="Brik-4" data-name="Brik" class="cls-3" d="M126,27h16a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H124a0,0,0,0,1,0,0V29A2,2,0,0,1,126,27Z"/>
+  <path id="Brik-5" data-name="Brik" class="cls-4" d="M92,27h16a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H90a0,0,0,0,1,0,0V29A2,2,0,0,1,92,27Z"/>
+  <path id="Balcony" class="cls-5" d="M178,52V43H160V76Z"/>
+  <path id="Balcony-2" data-name="Balcony" class="cls-6" d="M23,52V43H41V76Z"/>
+  <rect id="Wall" class="cls-7" x="40" y="43" width="120" height="57"/>
+  <rect id="Brik-6" data-name="Brik" class="cls-8" x="40" y="43" width="40" height="20"/>
+  <rect id="Brik-7" data-name="Brik" class="cls-9" x="80" y="83" width="40" height="17"/>
+  <rect id="Brik-8" data-name="Brik" class="cls-10" x="120" y="83" width="40" height="17"/>
+  <rect id="Brik-9" data-name="Brik" class="cls-11" x="80" y="44" width="40" height="20"/>
+  <rect id="Brik-10" data-name="Brik" class="cls-12" x="120" y="44" width="40" height="20"/>
+  <rect id="Brik-11" data-name="Brik" class="cls-13" x="100" y="63" width="40" height="20"/>
+  <rect id="Brik-12" data-name="Brik" class="cls-13" x="40" y="83" width="39" height="17"/>
+  <rect id="Colorize" class="cls-14" x="40" y="43" width="40" height="57"/>
+  <rect id="Colorize-2" data-name="Colorize" class="cls-15" x="141" y="43" width="19" height="57"/>
+  <rect id="Colorze" class="cls-16" x="40" y="43" width="120" height="10"/>
+  <rect id="Ground" class="cls-17" x="24" y="43" width="154" height="4"/>
+  <rect id="Ground-2" data-name="Ground" class="cls-18" x="40" y="96" width="120" height="4"/>
+  <path id="Flag" class="cls-19" d="M136.167,77L131,82l-4.833-5L121,82l-4.833-5L111,82l-5-5-5,5-4.833-5L91,82l-4.833-5L81,82l-4.833-5L71,82l-5-5-5,5V47h80V82Z"/>
+  <path id="Flag-2" data-name="Flag" class="cls-20" d="M136.167,78L131,83l-4.833-5L121,83l-4.833-5L111,83l-5-5-5,5-4.833-5L91,83l-4.833-5L81,83l-4.833-5L71,83l-5-5-5,5V79l5-5,5,5,5.167-5L81,79l5.167-5L91,79l5.167-5L101,79l5-5,5,5,5.167-5L121,79l5.167-5L131,79l5.167-5L141,79v4Z"/>
+  <path id="Flag-3" data-name="Flag" class="cls-21" d="M61,47v6h80V47H61Z"/>
 </svg>

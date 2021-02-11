@@ -5,7 +5,7 @@ import {
 
 import {
     getTimeAsMinutesAndSeconds,
-    getDateBetween
+    getRemainingTimeBetween
   } from './datetime';
 
 import {
@@ -14,6 +14,7 @@ import {
     setFirstShowClassToElement,
     constructTower,
     updateQuestionsInterface,
+    updateDataInPlayerInterface,
     updateTower,
     showFinalWinResultScreen,
     showFinalLoseResultScreen,
@@ -48,7 +49,10 @@ const Game = {
       showAndWaitForQuestionSelect: true,
       timeout: 2000
     });
-
+    updateTower({
+      targetFloorId: this.questionsCurrentId,
+      currentFloor: true,
+    });
   },
 
   showQuestionsInterface ({ questionButton, questionsCurrentId = this.questionsCurrentId }) {
@@ -74,36 +78,75 @@ const Game = {
   },
 
   answerSelected ( selectedAnswerId ) {
-    const { id, correctId } = this.currentQuestionFromBranch;
-    const answerIsWrong = selectedAnswerId !== correctId;
+    const { id, correctId, scores } = this.currentQuestionFromBranch;
+    const answerIsWrong = !(selectedAnswerId == correctId);
     this.hideQuestionsInterface();
-    if (answerIsWrong) {
-      this.playerA.lives -= 1;
-      if (this.playerA.lives === 0) { this.gameOver(); return; }
-      updateTower({
-        targetFloorId: this.questionsCurrentId,
-        wrongFloor: true,
-        usedQuestionId: id
+    answerIsWrong ? this.wrongAnswerSelected() : this.correctAnswerSelected();
+    this.questionsCurrentId++;
+    this.pendingAnswer = false;
+    this.timersForAnswer.clear();
+  },
+
+  wrongAnswerSelected () {
+    const { id, correctId, scores } = this.currentQuestionFromBranch;
+    const noLivesLeft = this.playerA.lives-1 === 0;
+    this.playerA.lives -= 1;
+    updateTower({
+      targetFloorId: this.questionsCurrentId,
+      wrongFloor: true,
+      usedQuestionId: id
+    });
+    updateDataInPlayerInterface({
+      data: this.playerA,
+      loseLive: true
+    });
+    if (noLivesLeft) { this.gameOver({ timeout: 1000 }); }
+    else {
+      updateTower({ targetFloorId: this.questionsCurrentId+1, currentFloor: true });
+      updateQuestionsInterface({
+        floorNumber: this.questionsCurrentId+1,
+        showAndWaitForQuestionSelect: true,
+        timeout: 2000
       });
-    } else updateTower({
+    };
+  },
+
+  correctAnswerSelected () {
+    const { id, correctId, scores } = this.currentQuestionFromBranch;
+    const thisIsLastFloor = this.questionsCurrentId === this.questions.length-1;
+    this.playerA.scores += scores;
+    updateTower({
       targetFloorId: this.questionsCurrentId,
       correctFloor: true,
       usedQuestionId: id
     });
-    this.questionsCurrentId++;
-    updateTower({ targetFloorId: this.questionsCurrentId, currentFloor: true });
-    this.pendingAnswer = false;
-    this.timersForAnswer.clear();
-    updateQuestionsInterface({
-      floorNumber: this.questionsCurrentId+1,
-      showAndWaitForQuestionSelect: true,
-      timeout: 2000
+    updateDataInPlayerInterface({
+      data: { ...this.playerA, plusScores: scores },
+      updateScrores: true
     });
+    if (thisIsLastFloor) {
+      updateTower({ finished: true });
+      this.gameComplete({ timeout: 2200 });
+    }
+    else {
+      updateTower({ targetFloorId: this.questionsCurrentId+1, currentFloor: true });
+      updateQuestionsInterface({
+        floorNumber: this.questionsCurrentId+1,
+        showAndWaitForQuestionSelect: true,
+        timeout: 2000
+      });
+    };
   },
 
-  hintUsed () {
-    const deny = this.playerA.hints > 0;
+  useHint () {
+    const deny = this.playerA.hints === 0;
     if (deny) return;
+    this.playerA.hints--;
+    updateDataInPlayerInterface({
+      data: this.playerA,
+      useHint: true
+    });
+    return;
     this.hideQuestionsInterface();
     this.pendingAnswer = false;
     this.timersForAnswer.clear();
@@ -115,20 +158,29 @@ const Game = {
     this.pendingAnswer = true;
     this.timersForAnswer.startTime = new Date();
     this.timersForAnswer.interval = setInterval( () => {
-      const dateBetween = getDateBetween({ secondDate: this.timersForAnswer. startTime, operator: '-' });
+      const dateBetween = getRemainingTimeBetween({
+        firstDate: new Date,
+        secondDate: this.timersForAnswer.startTime,
+        timeForAnswer: timeForAnswer*1000
+      });
+      if (+dateBetween < 1) {
+        this.answerSelected(-1);
+        this.timersForAnswer.clear();
+        return;
+      };
       const mmss = getTimeAsMinutesAndSeconds(dateBetween);
-      changeTextIntoSomeElement({ element: timerElement, text: mmss })
+      changeTextIntoSomeElement({ element: timerElement, text: mmss });
     }, 60);
     this.timersForAnswer.timeot = setTimeout( () =>
       this.timersForAnswer.clear(), timeForAnswer*1000 );
   },
 
-  gameComplete () {
-    showFinalWinResultScreen();
+  gameComplete ({ timeout }) {
+    setTimeout(() => showFinalWinResultScreen({}), timeout );
   },
 
-  gameOver () {
-    showFinalLoseResultScreen();
+  gameOver ({ timeout }) {
+    setTimeout(() => showFinalLoseResultScreen({}), timeout )
   },
 
   currentQuestionFromBranch: {},

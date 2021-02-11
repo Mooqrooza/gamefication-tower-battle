@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
+  <path fill="#5c4a35" class="cls-1" d="M160,27h16a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H158a0,0,0,0,1,0,0V29A2,2,0,0,1,160,27Z"/>
+  <path fill="#766755" class="cls-2" d="M25,27H41a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H23a0,0,0,0,1,0,0V29A2,2,0,0,1,25,27Z"/>
+  <path fill="#766755" class="cls-2" d="M58,27H74a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H56a0,0,0,0,1,0,0V29A2,2,0,0,1,58,27Z"/>
+  <path fill="#6b563f" class="cls-3" d="M126,27h16a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H124a0,0,0,0,1,0,0V29A2,2,0,0,1,126,27Z"/>
+  <path fill="#6f604e" class="cls-4" d="M92,27h16a2,2,0,0,1,2,2V43a0,0,0,0,1,0,0H90a0,0,0,0,1,0,0V29A2,2,0,0,1,92,27Z"/>
+  <path fill="#554431" class="cls-5" fill-rule="evenodd" d="M178,52V43H160V76Z"/>
+  <path fill="#77634c" class="cls-6" fill-rule="evenodd" d="M23,52V43H41V76Z"/>
+  <rect fill="#856f56" class="cls-7" x="40" y="43" width="120" height="57"/>
+  <rect fill="#9e866b" class="cls-8" x="40" y="43" width="40" height="20"/>
+  <rect fill="#8f7a62" class="cls-9" x="60" y="63" width="40" height="20"/>
+  <rect fill="#7e6951" class="cls-10" x="80" y="83" width="40" height="17"/>
+  <rect fill="#8f785e" class="cls-11" x="120" y="83" width="40" height="17"/>
+  <rect fill="#8b755b" class="cls-12" x="80" y="44" width="40" height="20"/>
+  <rect fill="#846e54" class="cls-13" x="120" y="44" width="40" height="20"/>
+  <rect fill="#897258" class="cls-14" x="100" y="63" width="40" height="20"/>
+  <rect fill="#897258" class="cls-14" x="40" y="83" width="39" height="17"/>
+  <rect fill="#9a8869" class="cls-15" opacity="0.3" x="40" y="43" width="40" height="57"/>
+  <rect fill="#3d3022" class="cls-16" opacity="0.32" x="100" y="43" width="60" height="57"/>
+  <rect fill="#3d3022" class="cls-17" opacity="0.2" x="141" y="43" width="19" height="57"/>
+  <rect fill="#3d3022" class="cls-18" opacity="0.23" x="40" y="43" width="120" height="10"/>
+  <rect fill="#685947" class="cls-19" x="24" y="43" width="154" height="4"/>
+  <rect fill="#5b4d3d" class="cls-20" x="40" y="97" width="120" height="4"/>
+</svg>

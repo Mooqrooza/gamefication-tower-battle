@@ -1,20 +1,27 @@
-/* Задаем переданый класс указанному элементу */
-const setClassToElement = ({ element, className }) => {
-  if (!element) return;
-  let classRemoveName = className;
-  if (className === 'hover-on') { classRemoveName = 'hover-off' }
-  else if (className === 'hover-off') classRemoveName = 'hover-on';
-  else if (className === 'show') { classRemoveName = 'hide'; }
-  else if (className === 'hide') { classRemoveName = 'show'; }
-  element.classList.remove(classRemoveName);
-  element.offsetWidth;
-  element.classList.add(className);
-};
-
 /* Замена текста в принятом DOM элементе */
 const changeTextIntoSomeElement = ({ element, text }) => {
   setClassToElement({ element, className: 'blink' });
   element.textContent = text;
+};
+
+/* Задаем переданый класс указанному элементу */
+const setClassToElement = ({ element, className }) => {
+  if (!element) return;
+  if (className === 'hover-on') { element.classList.remove('hover-off'); }
+  else if (className === 'hover-off') { element.classList.remove('hover-on'); }
+  else if (className === 'show') {
+    element.classList.remove('hide');
+    element.classList.remove('hidden');
+  }
+  else if (className === 'hide') { element.classList.remove('show'); }
+  else  element.classList.remove(className);
+  element.offsetWidth;
+  element.classList.add(className);
+};
+
+const toggleClassToElement = ({ element, classAdd, classRemove }) => {
+  element.offsetWidth;
+  element.classList.toggle('classAdd','classRemove');
 };
 
 /* Задем класс "show" в принятом DOM элементе */
@@ -47,6 +54,12 @@ const setClickClassToElement = ({ element, className }) => {
   setClassToElement({ element, className: 'click' });
 };
 
+/* Задем класс "sense" в принятом DOM элементе */
+const setSenseClassToElement = ({ element, className }) => {
+  element ? element : element = document.getElementsByClassName(className)[0];
+  setClassToElement({ element, className: 'sense' });
+};
+
 /* Задем класс "use" в принятом DOM элементе */
 const setUseClassToElement = ({ element, className }) => {
   element ? element : element = document.getElementsByClassName(className)[0];
@@ -72,6 +85,7 @@ export {
   setHideClassToElement,
   setFirstShowClassToElement,
   setClickClassToElement,
+  setSenseClassToElement,
   setUseClassToElement,
   setHoverOnClassToElement,
   setHoverOffClassToElement,

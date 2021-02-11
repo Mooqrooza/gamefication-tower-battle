@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import '../../styles/variables.scss';
 
 .tower {
 
@@ -7,7 +7,7 @@
     width: 200px;
     height: 60px;
 
-    svg {
+    svg.wall{
       position: absolute;
       top: -20px;
     }
@@ -29,11 +29,27 @@
 
       .current-cover {
         fill: #fff;
-        animation: floor-current-cover-animation-1  2s 0s infinite;
+        animation: floor-current-cover-animation-1  2s 0s 1;
       }
 
     }
 
+
+    &.correct {
+
+      .correct-cover {
+        opacity: 0.5; transition: opacity 0.5s 0s;
+      }
+
+      .door-marks {
+        .mark.wrong {
+          fill: $color-main-red;
+        }
+        .mark.correct {
+          fill: $color-main-green;
+        }
+      }
+    }
 
     &.wrong {
 
@@ -50,6 +66,7 @@
         }
       }
     }
+
   }
 
 }

@@ -1,0 +1,51 @@
+.player-interface {
+  .hints-ico {
+
+    * { transform-origin: center; }
+
+    &.sense {
+      .flash { animation: player-interface-hints-animate-1 1.2s 0s 1; }
+      .main { animation: player-interface-hints-animate-2 0.4s 0s 1; }
+    }
+
+    &.re-sense {
+      .flash { animation: player-interface-hints-animate-1a 1.2s 0s 1; }
+      .main { animation: player-interface-hints-animate-2a 0.4s 0s 1; }
+    }
+
+    &.loss {
+      .flash { animation: player-interface-hints-animate-1a 1.2s 0s 1; }
+      .main { animation: player-interface-hints-animate-2a 0.4s 0s 1; }
+    }
+  }
+}
+
+@keyframes player-interface-hints-animate-1 {
+  0% { opacity: 0; transform: scale(0); }
+  5% { opacity: 1; transform: scale(1); }
+  5.1% { transform: scale(0); }
+  30% { opacity: 1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(0.98); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+@keyframes player-interface-hints-animate-1a {
+  0% { opacity: 0; transform: scale(0); }
+  5% { opacity: 1; transform: scale(1); }
+  5.1% { transform: scale(0); }
+  30% { opacity: 1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(0.98); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+@keyframes player-interface-hints-animate-2 {
+  0% { opacity: 0; transform: scale(0); }
+  60% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes player-interface-hints-animate-2a {
+  0% { opacity: 0; transform: scale(0); }
+  60% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}

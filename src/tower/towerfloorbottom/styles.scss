@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.tower{
+  .floor-bottom  {
+    position: relative;
+    width: 200px;
+    height: 60px;
+
+    svg {
+      position: absolute;
+      top: -20px;
+    }
+  }
+}

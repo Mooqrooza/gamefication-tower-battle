@@ -1,0 +1,32 @@
+.player-interface {
+    .hart-ico {
+
+      * { transform-origin: center; }
+
+      &.hiden {
+        visibility: hidden;
+      }
+
+      &.loss {
+        .eclipse { }
+        .flash { animation: player-interface-hart-animate-1 1.2s 0s 1; }
+        .hart { animation: player-interface-hart-animate-2 1s 0s 1 forwards; }
+      }
+
+    }
+}
+
+@keyframes player-interface-hart-animate-1 {
+  0% { opacity: 0; transform: scale(0); fill: #f57248; }
+  5% { opacity: 1; transform: scale(1); }
+  5.1% { transform: scale(0); }
+  30% { opacity: 1; transform: scale(1); }
+  60% { opacity: 1; transform: scale(0.98); fill: #f57248;  }
+  100% { opacity: 0; transform: scale(0); fill: #1a6687; }
+}
+
+@keyframes player-interface-hart-animate-2 {
+  0% { transform: scale(1); filter: none; fill: #ffa78b;}
+  30% { transform: scale(1.2); fill: #f57248; }
+  100% { transform: scale(0.8);  fill: #1a6687; }
+}

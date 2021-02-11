@@ -79,7 +79,7 @@ const setEventsToUseHintButton = () => {
   if (!element) return;
   element.addEventListener("click", (event) => {
     setClickClassToElement({ element: event.currentTarget });
-    Game.hintUsed( event.currentTarget.getAttribute('1') );
+    Game.useHint();
   });
   element.addEventListener("mouseenter", (event) => {
     setHoverOnClassToElement({ element: event.currentTarget });

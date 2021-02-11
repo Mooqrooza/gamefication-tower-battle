@@ -1,7 +1,7 @@
 const html = `
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="420" viewBox="0 0 480 420">
+<svg class="win" xmlns="http://www.w3.org/2000/svg" width="480" height="420" viewBox="0 0 480 420">
   <defs>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+    <filter id="win-avatar-place-shadow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
       <feDropShadow stdDeviation="8" in="SourceGraphic" dx="0" dy="10"m flood-color="#000" flood-opacity="0.5" x="0%" y="0%" width="100%" height="100%" result="dropShadow"/>
     </filter>
   </defs>
@@ -51,7 +51,7 @@ const html = `
   <rect fill="#c28930" x="421" y="157" width="4" height="9" rx="2" ry="2"/>
   <rect fill="#c28930" x="54" y="157" width="4" height="9" rx="2" ry="2"/>
   <g class="avatar-place">
-    <circle fill="#2190bd" fill-rule="evenodd" filter="url(#shadow)"; cx="239.5" cy="161.5" r="134.5"/>
+    <circle fill="#2190bd" filter="url(#win-avatar-place-shadow)" cx="239.5" cy="161.5" r="134.5"/>
     <circle fill="#1f8bb7" cx="240" cy="162" r="120"/>
     <circle fill="#1b769a" cx="240" cy="162" r="98"/>
   </g>

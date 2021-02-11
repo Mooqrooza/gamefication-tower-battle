@@ -23,7 +23,7 @@ window.onload = () => {
   setInitialEvents();
   setTimeout(() => {
     Game.ready();
-  }, 3000);
+  }, 100);
 };
 
 document.body.innerHTML = `
@@ -37,8 +37,8 @@ document.body.innerHTML = `
     ${uppergradientoverlay}
     ${ground}
     <div class="interfaces-box">
-      ${playerinterface({ classIdentifer: "main"})}
-      ${playerinterface({ classIdentifer: "second"})}
+      ${playerinterface({ classIdentifer: "main", name: 'Венецианские фамильяры' })}
+      ${playerinterface({ classIdentifer: "second", name: 'Обезумевшая кучка федералов' })}
       ${questionsinterface}
     </div>
     ${splash.html}
