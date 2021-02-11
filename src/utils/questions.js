@@ -1,8 +1,8 @@
 const QuestionsGroup = {
     easyQuestion: {
       id: 0,
-      question: 'Что было раньше: яйцо или курица? ',
-      correctId: 1,
+      question: 'Что было раньше: яйцо или курица?...<br />Только не гуглить! ',
+      correctId: 2,
       answers: ['Курица', 'Яйцо', 'Инфузория'],
       timeForAnswer: 60,
       scores: 100,
@@ -19,7 +19,7 @@ const QuestionsGroup = {
       id: 2,
       question: 'Что было до момента возникновения времени? ',
       correctId: 0,
-      answers: ['Ничто', 'Нечто', 'Курица'],
+      answers: ['Ничего', 'Нечто', 'Курица'],
       timeForAnswer: 30,
       scores: 300,
     },

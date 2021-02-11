@@ -17,6 +17,13 @@
   100%{ opacity: 1; }
 }
 
+@keyframes common-blink-animate-1 {
+  0%{ opacity: 0; }
+  40%{ opacity: 1; }
+  70%{ opacity: 1; }
+  100%{ opacity: 0; }
+}
+
 @keyframes common-button-click-animate-1 {
   0% {
     opacity: 0.5;

@@ -9,7 +9,7 @@ const html = `
     <div class="wrapper">
       <h1>« Башня »</h1>
       <div class="line"></div>
-      <p class="info-text">Режим состязания "Башня": Загрузка...</p>
+      <p class="info-text">Режим состязания "Башня": <span>Загрузка...</span></p>
       <div class="line"></div>
       <div class="button-and-loader-box">
         ${startbutton({ text: 'Начнем', classIdentifiers: 'hidden'})}

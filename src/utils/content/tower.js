@@ -12,9 +12,8 @@ const checkAndScrolTowerToCurrentFloor = ({ element }) => {
   const checkPosY = ( winHeight/2)-20;
   const elementPosY = currentFloorElement.getBoundingClientRect().top;
   if (elementPosY < checkPosY) {
-    floorsBoxElement.style.marginBottom = `-${ Math.floor(checkPosY-elementPosY-50) }px`;
+    floorsBoxElement.style.marginBottom = `-${ Math.floor(checkPosY-elementPosY) }px`;
     floorsBoxElement.style.transition = 'all 0.4s 0s';
-    //towerElement.scroll(0, elementPosY-checkPosY);
   } else {
     floorsBoxElement.style.marginBottom = '50px';
     floorsBoxElement.style.transition = 'all 0.4s 0s';
@@ -88,7 +87,7 @@ const updateTower = ({
   if (currentFloor) {
     setCurrentClassToFloorElement({ element: floorElement });
     useKnightOnTheFloor({ element: floorElement, show: true });
-    checkAndScrolTowerToCurrentFloor({ element: towerElement })
+    //checkAndScrolTowerToCurrentFloor({ element: towerElement })
   } else if (correctFloor) {
     setCorrectClassToFloorElement({ element: floorElement });
     setCorrectClassToFloorElement({ element: doorMarksElements[usedQuestionId] });

@@ -1,5 +1,4 @@
 
-import "./styles/styles.css";
 import "./styles/styles.scss";
 import "./styles/variables.scss";
 import "./styles/animations.scss";
@@ -23,7 +22,7 @@ window.onload = () => {
   setInitialEvents();
   setTimeout(() => {
     Game.ready();
-  }, 100);
+  }, 3000);
 };
 
 document.body.innerHTML = `
