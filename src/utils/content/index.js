@@ -1,6 +1,6 @@
 import { setEventsToAnswerButtons } from '../events';
 
-import { constructTower, updateTower } from './tower';
+import { constructTower, updateTower, checkAndScrolTowerToCurrentFloor } from './tower';
 
 import { updateQuestionsInterface } from './questionsinterface';
 
@@ -38,7 +38,8 @@ export {
 
   constructTower,
   updateTower,
-
+  checkAndScrolTowerToCurrentFloor,
+  
   updateQuestionsInterface,
 
   createPlayerInterface,

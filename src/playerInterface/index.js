@@ -10,7 +10,7 @@ const html = ({ classIdentifer, name, scores, lives, hints }) => `
     <div class="box">
       <div class="name">${name}</div>
     </div>
-    <div class="box">
+    <div class="box main">
       <div class="avatar">
         <div class="img"></div>
       </div>
@@ -25,7 +25,6 @@ const html = ({ classIdentifer, name, scores, lives, hints }) => `
           ${heartico}${heartico}
         </div>
         ${lines}
-
     </div>
     <div class="scores">
       <p><span>000000</span><span></span></p>

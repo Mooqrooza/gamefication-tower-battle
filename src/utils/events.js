@@ -11,7 +11,14 @@ import {
   updateDataInPlayerInterface,
 
   updateQuestionsInterface,
+
+  checkAndScrolTowerToCurrentFloor,
 } from './content';
+
+window.addEventListener("resize", () => {
+  const towerElement = document.getElementsByClassName('tower')[0];
+  checkAndScrolTowerToCurrentFloor({ element: towerElement });
+});
 
 /* Обработчики для кнопки "Выход" на финальном экране */
 const setEventsToFinalExitButton = () => {

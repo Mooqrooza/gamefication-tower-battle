@@ -34,7 +34,7 @@ const fillQuestions = ({ count }) => {
    }
 };
 
-fillQuestions({ count: 12 });
+fillQuestions({ count: 10 });
 
 
 export default questions;

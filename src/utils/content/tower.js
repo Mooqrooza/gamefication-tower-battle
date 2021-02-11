@@ -5,6 +5,22 @@ import knightclimbing from '../../tower/knightclimbing';
 
 import { setClassToElement } from './classmodifers'
 
+const checkAndScrolTowerToCurrentFloor = ({ element }) => {
+  const floorsBoxElement = element.querySelector('.floors');
+  const currentFloorElement = floorsBoxElement.querySelector('.floor.current');
+  const winHeight = window.innerHeight;
+  const checkPosY = ( winHeight/2)-20;
+  const elementPosY = currentFloorElement.getBoundingClientRect().top;
+  if (elementPosY < checkPosY) {
+    floorsBoxElement.style.marginBottom = `-${ Math.floor(checkPosY-elementPosY-50) }px`;
+    floorsBoxElement.style.transition = 'all 0.4s 0s';
+    //towerElement.scroll(0, elementPosY-checkPosY);
+  } else {
+    floorsBoxElement.style.marginBottom = '50px';
+    floorsBoxElement.style.transition = 'all 0.4s 0s';
+  }
+};
+
 /* СОбираем этажи башни */
 const constructTower = () => {
   const towerFloorsBox = document.querySelector('.tower .floors .main');
@@ -62,7 +78,8 @@ const updateTower = ({
     usedQuestionId,
     finished,
   }) => {
-  const towerFloorsBox = document.querySelector('.tower .floors .main');
+  const towerElement = document.getElementsByClassName('tower')[0];
+  const towerFloorsBox = towerElement.querySelector('.tower .floors .main');
   if (!towerFloorsBox) return;
   const floorElement = Array.from(towerFloorsBox.children)[targetFloorId];
   if (!floorElement) return
@@ -71,6 +88,7 @@ const updateTower = ({
   if (currentFloor) {
     setCurrentClassToFloorElement({ element: floorElement });
     useKnightOnTheFloor({ element: floorElement, show: true });
+    checkAndScrolTowerToCurrentFloor({ element: towerElement })
   } else if (correctFloor) {
     setCorrectClassToFloorElement({ element: floorElement });
     setCorrectClassToFloorElement({ element: doorMarksElements[usedQuestionId] });
@@ -87,4 +105,5 @@ const updateTower = ({
 export {
   constructTower,
   updateTower,
+  checkAndScrolTowerToCurrentFloor,
 }

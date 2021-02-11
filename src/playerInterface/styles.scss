@@ -16,7 +16,7 @@
 
   .box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-bottom: 10px;
   }
 
@@ -124,12 +124,10 @@
     top: 40px;
     left: 30px;
 
-    .box {
-      &:nth-child(2) {
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 4px;
-      }
+    .box.main {
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 4px;
     }
 
     .avatar {
@@ -158,12 +156,10 @@
       text-align: right;
     }
 
-    .box {
-      &:nth-child(2) {
-        flex-direction: row-reverse;
-        align-items: center;
-        margin-bottom: 4px;
-      }
+    .box.main {
+      flex-direction: row-reverse;
+      align-items: center;
+      margin-bottom: 4px;
     }
 
     .avatar {
@@ -182,6 +178,88 @@
       }
     }
 
+  }
+
+
+}
+
+@media (max-width: 800px) {
+  .player-interface {
+     .lines { visibility: hidden; }
+  }
+}
+
+@media (max-width: 680px) {
+  .player-interface {
+    width: 80px;
+  }
+  .player-interface.main, .player-interface.second {
+
+      .name {
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+     .box.main {
+       flex-direction: row;
+       flex-wrap: wrap;
+       justify-content: center;
+     }
+
+     .avatar {
+       margin: 0 4px -2px 4px;
+       transform: scale(0.94);
+     }
+
+     .hints {
+       display: flex;
+       justify-content: center;
+       height: 40px;
+       width: 100%;
+       margin-bottom: -5px;
+       transform: scale(0.9);
+       .count-indicator { visibility: hidden; }
+     }
+
+     .scores {
+       margin-top: 4px;
+       flex-direction: row;
+       justify-content: center;
+
+       p {  letter-spacing: 0; }
+     }
+  }
+
+  .player-interface.main {
+    top: 20px;
+    left: 20px;
+
+    .lives {
+
+      width: 80px;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      .hart-ico {
+        margin: 0 2px -2px 2px;
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  .player-interface.second {
+    top: 20px;
+    right: 20px;
+
+    .lives {
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      .hart-ico {
+        margin: 0 2px -2px 2px;
+        transform: scale(0.9);
+      }
+    }
   }
 }
 

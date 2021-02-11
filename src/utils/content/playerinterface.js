@@ -37,8 +37,8 @@ const setLossClassToPlayerInterfaceElement = ({ element }) => {
   element.classList.add('loss');
 };
 
-const setDisableClassToPlayerInterfaceElement = ({ element }) => {
-  element.classList.add('disable');
+const setDisabledClassToPlayerInterfaceElement = ({ element }) => {
+  element.classList.add('disabled');
 };
 
 const updatePlayerInterface = ({
@@ -61,7 +61,7 @@ const updatePlayerInterface = ({
   };
 
   if (useHint) {
-    if (playerData.hints === 0) setDisableClassToPlayerInterfaceElement({ element: hintsElement })
+    if (playerData.hints === 0) setDisabledClassToPlayerInterfaceElement({ element: hintsElement })
     else setSenseClassToPlayerInterfaceElement({ element: hintsElement });
   };
 

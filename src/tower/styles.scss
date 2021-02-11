@@ -6,20 +6,21 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  top: 0;
   bottom: 0;
   width: 100%;
-  max-height: 100%;
+  min-height: 100%;
   overflow: hidden;
 
   .floors {
     display: flex;
+    position: relative;
     flex-direction: column-reverse;
     margin-bottom: 50px;
     opacity: 0;
 
     .main {
       display: flex;
+      position: relative;
       flex-direction: column-reverse;
     }
   }
