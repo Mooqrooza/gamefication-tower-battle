@@ -16,10 +16,7 @@ const html = ({ classIdentifer, name, scores, lives, hints }) => `
       </div>
         <div class="hints">
           ${hintsico}
-          <div class="count-indicator" >
-            <div></div>
-            <div></div>
-          </div>
+          <div class="amount-indycator" ></div>
         </div>
         <div class="lives">
           ${heartico}${heartico}

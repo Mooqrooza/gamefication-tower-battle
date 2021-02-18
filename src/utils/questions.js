@@ -4,7 +4,7 @@ const QuestionsGroup = {
       question: 'Что было раньше: яйцо или курица?...<br />Только не гуглить! ',
       correctId: 2,
       answers: ['Курица', 'Яйцо', 'Инфузория'],
-      timeForAnswer: 60,
+      timeForAnswer: 30,
       scores: 100,
     },
     normalQuestion: {
@@ -12,7 +12,7 @@ const QuestionsGroup = {
       question: 'Какой стороной падает хлеб, намазынный сверху маслом?<br />Хлеб "Бородинский", а марка масла неизвестна... ',
       correctId: 3,
       answers: ['Боковой стороной', 'Маслом вниз', 'Хлебом вверх', 'Как получится'],
-      timeForAnswer: 40,
+      timeForAnswer: 20,
       scores: 200,
     },
     hardQuestion: {
@@ -20,7 +20,7 @@ const QuestionsGroup = {
       question: 'Что было до момента возникновения времени? ',
       correctId: 0,
       answers: ['Ничего', 'Нечто', 'Курица'],
-      timeForAnswer: 30,
+      timeForAnswer: 10,
       scores: 300,
     },
 };

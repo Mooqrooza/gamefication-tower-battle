@@ -3,10 +3,6 @@
 
     * { transform-origin: center; }
 
-    .cross-line {
-      opacity: 0;
-    }
-
     &.sense {
       .flash { animation: player-interface-hints-animate-1 1.2s 0s 1; }
       .main { animation: player-interface-hints-animate-2 0.4s 0s 1; }
@@ -29,9 +25,7 @@
         :nth-child(1) { fill: #217497; }
         :nth-child(2) { fill: #26aac3; }
       }
-      .cross-line {
-        opacity: 1;
-      }
+
     }
   }
 }

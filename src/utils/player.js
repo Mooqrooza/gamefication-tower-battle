@@ -1,6 +1,6 @@
 // Класс для объекта игрока
 class Player {
-  
+
   hintsUsed = 0;
 
   wrongAnswers = 0;

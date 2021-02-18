@@ -1,0 +1,83 @@
+@import '../styles/variables.scss';
+
+.alert {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+
+  .color-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    &.red { background-color: $color-main-red; }
+    &.green { background-color: $color-main-green }
+  }
+
+  .text {
+    position: absolute;
+    min-height: 20px;
+    width: 100%;
+    padding: 40px 20px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0;
+  }
+
+  &.show-good {
+    opacity: 1;
+    visibility: visible;
+
+    .color-cover.green {
+      animation: alert-show-animate-1 0.32s 0s 1;
+    }
+    .text {
+      opacity: 0;
+      background-color: rgba($color-main-green, 0.96);
+      animation: alert-show-animate-2 0.3s 0.2s 1 forwards;
+    }
+  }
+
+  &.show-bad {
+    opacity: 1;
+    visibility: visible;
+
+    .color-cover.red {
+      animation: alert-show-animate-1 0.32s 0s 1;
+    }
+    .text {
+      opacity: 0;
+      background-color: rgba($color-main-red, 0.96);
+      animation: alert-show-animate-2 0.3s 0.2s 1 forwards;
+    }
+  }
+
+  &.hide{
+    animation: alert-hide-animate-1 0.8s 0s 1;
+    .text { opacity: 1; }
+  }
+}
+
+@keyframes alert-hide-animate-1 {
+ 0% { opacity: 1; visibility: visible; }
+ 99.9% { opacity: 0; visibility: visible; }
+ 100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes alert-show-animate-1 {
+ 0% { opacity: 0; transform: scaleY(1);}
+ 30% { opacity: 0.8; transform: scaleY(0.98);}
+ 100% { opacity: 1; transform: scaleY(0);}
+}
+
+@keyframes alert-show-animate-2 {
+ 0% { opacity: 0; transform: scaleY(1.5);}
+ 100% { opacity: 1; transform: scaleY(1);}
+}

@@ -9,18 +9,15 @@ import {
   } from './datetime';
 
 import {
+    showMainAlert,
     setTimerClassToButtonTextElement,
     changeTextIntoSomeElement,
     setFirstShowClassToElement,
-
     constructTower,
     updateTower,
-
     updateQuestionsInterface,
-
     createPlayerInterface,
     updatePlayerInterface,
-
     showFinalWinResultScreen,
     showFinalLoseResultScreen,
   } from './content';
@@ -58,7 +55,7 @@ const Game = {
   ready () {
     putSplashInLoadingCompleteState();
     createPlayerInterface({ playerData: { ...this.playerA }, mainPlayer: true });
-    createPlayerInterface({ playerData: { ...this.playerB }, secondPlayer: true });
+    //createPlayerInterface({ playerData: { ...this.playerB }, secondPlayer: true });
   },
 
   start () {
@@ -108,10 +105,9 @@ const Game = {
     const { id, correctId, scores } = this.currentQuestionFromBranch;
     const answerIsWrong = !(answerId == correctId);
     this.hideQuestionsInterface();
-    answerIsWrong ? this.wrongAnswerSelected() : this.correctAnswerSelected();
-    this.questionsCurrentId++;
     this.pendingAnswer = false;
     this.timersForAnswer.clear();
+    answerIsWrong ? this.wrongAnswerSelected() : this.correctAnswerSelected();
   },
 
   answerTimeIsOver () {
@@ -119,21 +115,23 @@ const Game = {
     const noLivesLeft = this.playerA.lives-1 === 0;
     this.hideQuestionsInterface();
     this.playerA.loseTime();
+    this.timersForAnswer.clear();
+    this.pendingAnswer = false;
     updateTower({
       targetFloorId: this.questionsCurrentId,
       wrongFloor: true,
-      usedQuestionId: id
+      usedQuestionId: id,
     });
     updatePlayerInterface({
       playerData: this.playerA,
       loseLive: true
     });
+    /* showMainAlert({ wrongAnswer: true }); */
     if (noLivesLeft) {
       this.gameOver({ timeout: 1000 });
     } else if (this.isFinalQuestion()) {
       this.gameComplete();
     } else {
-      updateTower({ targetFloorId: this.questionsCurrentId+1, currentFloor: true });
       updateQuestionsInterface({
         floorNumber: this.questionsCurrentId+1,
         showAndWaitForQuestionSelect: true,
@@ -141,9 +139,6 @@ const Game = {
         hintsCount: this.playerA.hints
       });
     };
-    this.questionsCurrentId++;
-    this.pendingAnswer = false;
-    this.timersForAnswer.clear();
   },
 
   wrongAnswerSelected () {
@@ -159,12 +154,12 @@ const Game = {
       playerData: this.playerA,
       loseLive: true
     });
+    /* showMainAlert({ wrongAnswer: true }); */
     if (noLivesLeft) {
       this.gameOver({ timeout: 1000 });
     } else if (this.isFinalQuestion()) {
       this.gameComplete();
     } else {
-      updateTower({ targetFloorId: this.questionsCurrentId+1, currentFloor: true });
       updateQuestionsInterface({
         floorNumber: this.questionsCurrentId+1,
         showAndWaitForQuestionSelect: true,
@@ -190,6 +185,7 @@ const Game = {
       this.gameComplete();
     }
     else {
+      /* showMainAlert({ correctAnswer: true }); */
       updateTower({ targetFloorId: this.questionsCurrentId+1, currentFloor: true });
       updateQuestionsInterface({
         floorNumber: this.questionsCurrentId+1,
@@ -198,6 +194,7 @@ const Game = {
         hintsCount: this.playerA.hints
       });
     };
+    this.questionsCurrentId++;
   },
 
   useHint () {
@@ -242,7 +239,8 @@ const Game = {
         secondDate: this.timersForAnswer.startTime,
         timeForAnswer: timeForAnswer*1000
       });
-      if (+dateBetween < 1) {
+
+      if (+dateBetween < 1000) {
         this.answerTimeIsOver();
         this.timersForAnswer.clear();
         return;
@@ -260,7 +258,7 @@ const Game = {
   },
 
   gameOver () {
-    setTimeout(() => showFinalLoseResultScreen({ gameResult: this.playerA }), 3000 )
+    setTimeout(() => showFinalLoseResultScreen({ gameResult: this.playerA }), 2200 )
   },
 
   clearTimersForAnswer () {
@@ -269,8 +267,7 @@ const Game = {
 
   isFinalQuestion () {
     return this.questionsCurrentId === questions.length-1;
-  }
-
+  },
 
 };
 

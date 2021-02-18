@@ -6,6 +6,8 @@ import { updateQuestionsInterface } from './questionsinterface';
 
 import { createPlayerInterface, updatePlayerInterface } from './playerinterface';
 
+import { showMainAlert } from './alerts';
+
 import {
   setClassToElement,
   changeTextIntoSomeElement,
@@ -25,6 +27,8 @@ import {
 } from './gameresultscreen';
 
 export {
+  showMainAlert,
+
   setClassToElement,
   changeTextIntoSomeElement,
   setShowClassToElement,
@@ -39,7 +43,7 @@ export {
   constructTower,
   updateTower,
   checkAndScrolTowerToCurrentFloor,
-  
+
   updateQuestionsInterface,
 
   createPlayerInterface,

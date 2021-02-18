@@ -48,7 +48,7 @@
       height: 40px;
     }
 
-    .count-indicator {
+    .amount-indycator {
       position: absolute;
       display: flex;
       justify-content: center;
@@ -62,7 +62,11 @@
         height: 3px;
         margin: 0 2px;
         border-radius: 3px;
-        background-color: lighten($color-main-turquoise, 8%);
+
+        &.turquoise {
+          background-color: lighten($color-main-turquoise, 8%); }
+        &.dark-blue {
+          background-color: darken($color-main-blue, 2%); }
       }
     }
   }

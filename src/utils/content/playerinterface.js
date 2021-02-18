@@ -17,11 +17,19 @@ const createPlayerInterface = ({ playerData, mainPlayer, secondPlayer }) => {
        classIdentifer: 'main',
        name, lives, hints, scores
      });
+     setHintsCountsLeftOnPlayerInterface({
+       element: document.querySelector('.player-interface.main .hints .amount-indycator'),
+       countsLeft: hints
+     });
   };
   if (secondPlayer) {
     interfacesBoxElement.innerHTML += playerinterface({
       classIdentifer: 'second',
       name, lives, hints, scores
+    });
+    setHintsCountsLeftOnPlayerInterface({
+      element: document.querySelector('.player-interface.second .hints .amount-indycator'),
+      countsLeft: hints
     });
   };
 };
@@ -41,6 +49,16 @@ const setDisabledClassToPlayerInterfaceElement = ({ element }) => {
   element.classList.add('disabled');
 };
 
+const setHintsCountsLeftOnPlayerInterface = ({ element, countsLeft, maxCounts = 2 }) => {
+  element.innerHTML = '';
+  for (let i=0; i < maxCounts; i++) {
+    countsLeft > 0 ?
+      element.innerHTML += '<div class="turquoise"></div>'
+        : element.innerHTML += '<div class="dark-blue"></div>';
+    countsLeft--;
+  };
+};
+
 const updatePlayerInterface = ({
    mainPlayer = true,
    playerData,
@@ -52,6 +70,7 @@ const updatePlayerInterface = ({
   const livesBoxElement = interfaceElement.getElementsByClassName('lives')[0];
   const hartElements = Array.from(interfaceElement.querySelectorAll('.hart-ico:not(.loss)'));
   const hintsElement = interfaceElement.querySelector('.hints-ico');
+  const hintsAmountIndycatorElement = interfaceElement.querySelector('.hints .amount-indycator');
   const scoresElement = interfaceElement.querySelector('.scores');
 
   if (loseLive) {
@@ -61,6 +80,7 @@ const updatePlayerInterface = ({
   };
 
   if (useHint) {
+    setHintsCountsLeftOnPlayerInterface({ element: hintsAmountIndycatorElement, countsLeft: playerData.hints });
     if (playerData.hints === 0) setDisabledClassToPlayerInterfaceElement({ element: hintsElement })
     else setSenseClassToPlayerInterfaceElement({ element: hintsElement });
   };

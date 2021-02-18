@@ -115,7 +115,7 @@ const updateQuestionsInterface = ({
       floorLevelElement.innerText = floorNumber
 
     case show || showAndWaitForQuestionSelect:
-      questionTextElement.innerText = 'Выберите сложноть вопроса ...'
+      questionTextElement.innerText = 'Выберите сложность вопроса ...'
       setClassToQuestionsInterfaceElement({ element: testInterfaceElement, className: 'show', timeout });
       if (hintsCount === 0) {
         setDisabledClassToElement({ element: useHintButtonElement });

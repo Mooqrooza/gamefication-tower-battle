@@ -5,6 +5,7 @@ import "./styles/animations.scss";
 
 import { setInitialEvents, Game } from './utils';
 
+import alert from './alert';
 import background from './background';
 import mountains from './mountains';
 import cloudsback from './cloudsback';
@@ -30,10 +31,10 @@ document.body.innerHTML = `
     ${background}
     ${mountains}
     ${cloudsback}
+    ${uppergradientoverlay}
     ${tower}
     ${cloudsfront}
     ${bottomgradientoverlay}
-    ${uppergradientoverlay}
     ${ground}
     <div class="interfaces-box">
       <div class="player-interfaces"></div>
@@ -41,5 +42,6 @@ document.body.innerHTML = `
     </div>
     ${splash.html}
     ${gameresultscreen}
+    ${alert}
   </div>
 `;

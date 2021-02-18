@@ -15,9 +15,10 @@ import {
   checkAndScrolTowerToCurrentFloor,
 } from './content';
 
+
 window.addEventListener("resize", () => {
-  //const towerElement = document.getElementsByClassName('tower')[0];
-  //checkAndScrolTowerToCurrentFloor({ element: towerElement });
+  const towerElement = document.getElementsByClassName('tower')[0];
+  checkAndScrolTowerToCurrentFloor({ element: towerElement });
 });
 
 /* Обработчики для кнопки "Выход" на финальном экране */
@@ -59,7 +60,7 @@ const setEventsToQuestionButtons = () => {
     el.addEventListener("click", (event) => {
       if ( event.currentTarget.classList.contains('use')) return;
       setUseClassToElement({ element: event.currentTarget });
-      Game.showQuestionsInterface({ questionButton: event.currentTarget });
+      Game.showQuestionsInterface({ questionButton: event.currentTarget })
     });
     el.addEventListener("mouseenter", (event) => setHoverOnClassToElement({ element: event.currentTarget }) );
     el.addEventListener("mouseleave", (event) => setHoverOffClassToElement({ element: event.currentTarget }) );
